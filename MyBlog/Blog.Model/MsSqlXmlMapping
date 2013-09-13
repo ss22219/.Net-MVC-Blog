@@ -1,0 +1,162 @@
+﻿<?xml version="1.0"  encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Blog" namespace="Blog">
+
+  <!--文章-->
+  <class name="Blog.Model.Article, Blog.Model" table="Article" lazy="true">
+    <id name="ArticleId" column="ArticleId" type="int" unsaved-value="0">
+      <generator class="native" />
+    </id>
+    <property name="Title" column="Title" type="string"  />
+    <property name="Content" column="Content" type="string"  />
+    <property name="CreateDate" column="CreateDate" type="DateTime"  />
+    <property name="ModifyDate" column="ModifyDate" type="DateTime"  />
+    <property name="CommentCount" column="CommentCount" type="int"  />
+    <property name="Browse" column="[Browse]" type="int"  />
+    <property name="Type" column="Type" type="int"  />
+    <property name="Status" column="Status" type="int"  />
+
+    <map name="Extends" cascade="all" lazy="false" table="ArticleExtend">
+      <key column="ArticleId" foreign-key="PK_Article_Extend"></key>
+      <map-key type="string" column="ExtendKey"></map-key>
+      <element type="string" column="ExtendValue"></element>
+    </map>
+
+    <many-to-one name="Author" column="UserId" class="Blog.Model.User, Blog.Model" lazy="false"/>
+
+    <bag name="Attachs" cascade="all" lazy="false">
+      <key column="ArticleId"/>
+      <one-to-many class="Blog.Model.Attach, Blog.Model"/>
+    </bag>
+
+    <bag name="Categorys" cascade="all" table="CategoryRelationShip" lazy="false">
+      <key column="ArticleId"/>
+      <many-to-many class="Blog.Model.Category, Blog.Model" column="CategoryId"/>
+    </bag>
+
+  </class>
+
+  <!--文章扩展-->
+  <class name="Blog.Model.ArticleExtend, Blog.Model" table="ArticleExtend">
+    <id name="ArticleExtendId" column="ArticleExtendId" type="int" unsaved-value="0">
+      <generator class="native" />
+    </id>
+    <property name="ExtendKey" column="ExtendKey" type="string"  />
+    <property name="ExtendValue" column="ExtendValue" type="string"  />
+
+    <many-to-one class="Blog.Model.Article, Blog.Model" column="ArticleId" name="Article"/>
+  </class>
+
+  <!--附件-->
+  <class name="Blog.Model.Attach, Blog.Model" table="Attach">
+    <id name="AttachId" column="AttachId" type="int" unsaved-value="0">
+      <generator class="native" />
+    </id>
+
+    <many-to-one class="Blog.Model.Article, Blog.Model" column="ArticleId" name="Article"/>
+    <property name="Title" column="Title" type="string"  />
+    <property name="Path" column="Path" type="string"  />
+    <property name="Type" column="Type" type="int"  />
+
+  </class>
+
+  <!--分类对应-->
+  <class name="Blog.Model.CategoryRelationShip, Blog.Model" table="CategoryRelationShip">
+    <id name="RelationShipId" column="RelationShipId" type="int" unsaved-value="0">
+      <generator class="native" />
+    </id>
+    <property name="CategoryId" column="CategoryId" type="int"  />
+    <property name="ArticleId" column="ArticleId" type="int"  />
+
+  </class>
+
+  <!--分类-->
+  <class name="Blog.Model.Category, Blog.Model" table="Category">
+    <id name="CategoryId" column="CategoryId" type="int" unsaved-value="0">
+      <generator class="native" />
+    </id>
+    <property name="Name" column="Name" type="string"  />
+    <property name="Type" column="Type" type="int"  />
+    <property name="Count" column="Count" type="int"  />
+
+    <bag name="Children" lazy="false" cascade="all">
+      <key column="ParentId" not-null="false"/>
+      <one-to-many class="Blog.Model.Category, Blog.Model" not-found="ignore"/>
+    </bag>
+    
+    <many-to-one column="ParentId" name="Parent" class="Blog.Model.Category" not-null="false"/>
+  </class>
+
+  <!--评论-->
+  <class name="Blog.Model.Comment, Blog.Model" table="Comment">
+    <id name="CommentId" column="CommentId" type="int" unsaved-value="0">
+      <generator class="native" />
+    </id>
+    <property name="Content" column="Content" type="string"  />
+    <property name="CreateDate" column="CreateDate" type="DateTime"  />
+    <property name="Author" column="Author" type="string"  />
+    <property name="AuthorMail" column="AuthorMail" type="string"  />
+    <property name="AuthorIP" column="AuthorIP" type="string"  />
+    <property name="Status" column="Status" type="int"  />
+
+    <many-to-one name="User" class="Blog.Model.User, Blog.Model" column="UserId" not-null="false" lazy="false"/>
+    <many-to-one class="Blog.Model.Article, Blog.Model" column="ArticleId" name="Article"/>
+
+    <many-to-one name="Parent" class="Blog.Model.Comment, Blog.Model" column="ParentId" not-null="false" not-found="ignore" cascade="none"/>
+    <bag name="Children" cascade="all" table="Comment" lazy="true">
+      <key column="ParentId"/>
+      <one-to-many class="Blog.Model.Comment, Blog.Model" not-found="ignore"/>
+    </bag>
+  </class>
+
+  <!--设置-->
+  <class name="Blog.Model.Setting, Blog.Model" table="Setting">
+    <id name="SettingId" column="SettingId" type="int" unsaved-value="0">
+      <generator class="native" />
+    </id>
+    <property name="SettingKey" column="SettingKey" type="string"  />
+    <property name="SettingValue" column="SettingValue" type="string"  />
+
+  </class>
+
+  <!--用户-->
+  <class name="Blog.Model.User, Blog.Model" table="[User]">
+    <id name="UserId" column="UserId" type="int" unsaved-value="0">
+      <generator class="native" />
+    </id>
+    <property name="UserName" column="UserName" type="string"  />
+    <property name="Password" column="Password" type="string"  />
+    <property name="NiceName" column="NiceName" type="string"  />
+    <property name="Email" column="Email" type="string"  />
+    <property name="RegisterDate" column="RegisterDate" type="DateTime"  />
+    <property name="Status" column="Status" type="int"  />
+    <property name="Role" column="Role" type="int" />
+
+    <bag name="Comments" lazy="true" inverse="true">
+      <key column="UserId"/>
+      <one-to-many class="Blog.Model.Comment, Blog.Model"/>
+    </bag>
+
+    <bag name="Articles" cascade="all" lazy="true">
+      <key column="UserId" />
+      <one-to-many class="Blog.Model.Article, Blog.Model"/>
+    </bag>
+
+    <map name="Extends" cascade="all" lazy="false" table="UserExtend">
+      <key column="UserId"></key>
+      <map-key column="ExtendKey" type="string"/>
+      <element column="ExtendValue" type="string"/>
+    </map>
+  </class>
+
+  <!--用户扩展-->
+  <class name="Blog.Model.UserExtend, Blog.Model" table="UserExtend">
+    <id name="UserExtendId" column="UserExtendId" type="int" unsaved-value="0">
+      <generator class="native" />
+    </id>
+    <many-to-one name="User" class="Blog.Model.User, Blog.Model" column="UserId"/>
+    <property name="ExtendKey" column="ExtendKey" type="string"  />
+    <property name="ExtendValue" column="ExtendValue" type="string"  />
+
+  </class>
+
+</hibernate-mapping>

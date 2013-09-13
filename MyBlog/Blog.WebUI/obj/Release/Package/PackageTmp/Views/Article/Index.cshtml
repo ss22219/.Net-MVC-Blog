@@ -1,0 +1,160 @@
+﻿@model Blog.Model.Article
+@using Blog.WebUI.Models;
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Content.cshtml";
+    Blog.Domain.PageInfo<Blog.Model.Comment> comments = (Blog.Domain.PageInfo<Blog.Model.Comment>)ViewBag.Comments;
+}
+@section ContentHead{
+    <script type="text/javascript" src="@Url.Content("~/Content/Include/js/comment-reply.min.js")"></script>
+}
+<h3>@Model.Title</h3>
+<div class="g3wz_1">
+    @Html.Raw(Model.Content)
+</div>
+<div class="n1">
+    <div class="n1_1">时间：@Model.CreateDate.ToString("yyyy-MM-dd")</div>
+    <div class="n1_2">
+        @if (Model.Categorys.Where(c => c.Type == Blog.Domain.CategoryType.Category).Count() > 0)
+        {
+            var categorys = Model.Categorys.Where(c => c.Type == Blog.Domain.CategoryType.Category && c.Parent == null).ToList();
+            @:分类：
+            for (int i = 0; i < categorys.Count; i++)
+            {
+            @Html.ActionLink(categorys[i].Name, "Category", "Category", new { id = categorys[i].CategoryId }, new { title = "查看 " + categorys[i].Name + " 下所有文章" })
+                if (i + 1 < categorys.Count)
+                {
+            @:,
+                }
+            }
+        }
+    </div>
+    <div class="n1_3">
+
+        @if (Model.Categorys.Where(c => c.Type == Blog.Domain.CategoryType.Tag).Count() > 0)
+        {
+            var categorys = Model.Categorys.Where(c => c.Type == Blog.Domain.CategoryType.Tag).ToList();
+            @:标签：
+            for (int i = 0; i < categorys.Count; i++)
+            {
+            @Html.ActionLink(categorys[i].Name, "Tag", "Category", new { id = categorys[i].Name }, new { title = "查看 " + categorys[i].Name + " 下所有文章" })
+                if (i + 1 < categorys.Count)
+                {
+            @:,
+                }
+            }
+        }
+
+    </div>
+</div>
+<div class="liuy">
+    @if (Model.CommentCount > 0)
+    {
+        <div class="liuy_1">
+            <h2 id="comments">目前有 @Model.CommentCount 条评论</h2>
+
+            @if (ViewBag.CloseComment != "1")
+            {
+                <div class="liuy_2"><a href="#respond">发 布</a></div>
+            }
+        </div>
+        @Html.CommentList(Url, comments.PageItems);
+    }
+    <!-- If comments are open, but there are no comments. -->
+
+    <div class="page">
+        @Html.Page(Url, new PageInfo()
+    {
+        PageIndex = ViewBag.Page,
+        ShowPage = 5,
+        TotalPage = comments.TotalPage,
+        Action = "Index",
+        Cotroller = "Article"
+    })
+    </div>
+
+    <div id="respond">
+
+        <div class="cancel-comment-reply">
+            <a rel="nofollow" id="cancel-comment-reply-link" href="#respond" style="display: none;">点击这里取消回复。</a>
+        </div>
+        @if (ViewBag.CloseComment == "1")
+        {
+            <style type="text/css">
+                .reply {
+                    display: none;
+                }
+            </style>
+            <p>对不起，评论功能已关闭。</p>
+        }
+        else
+        {
+            using (Html.BeginForm("Add", "Comment", FormMethod.Post, new { id = "commentform" }))
+            {
+
+                if (!ViewBag.IsLogin)
+                {
+                    if (ViewBag.NoLoginComment == "1")
+                    {
+                        
+            <p>你好！你目前的身份是游客，请输入昵称和电邮</p>
+            <div class="lybd1">
+                <div class="lybd1_1 lygg-bd">
+                    <input type="text" name="author" id="author" value="@ViewBag.Author" size="22" tabindex="1" aria-required="true">
+                </div>
+
+                <div class="lybd1_2 lygg-bd">
+                    <input type="text" name="email" id="email" value="@ViewBag.Email" size="22" tabindex="2" aria-required="true">
+                </div>
+
+                <div class="lybd1_3 lygg-bd">
+                    <input type="text" name="url" id="url" value="@ViewBag.Url" size="22" tabindex="3">
+                </div>
+            </div>
+
+            <div class="lybd2">
+                <div class="lybd2_1">
+                    <textarea name="Content" id="comment" cols="58" rows="10" tabindex="4"></textarea>
+                </div>
+                <div class="lybd2_2">
+                    <input name="submit" type="submit" id="submit" tabindex="5" value=" ">
+                    <input type="hidden" name="ArticleId" value="@Model.ArticleId" id="comment_post_ID">
+                    <input type="hidden" name="ParentId" id="comment_parent" value="0">
+                </div>
+            </div>
+
+            <div style="font: 0px/0px sans-serif; clear: both; display: block"></div>
+                    }
+                    else
+                    {
+            <p>你需要登陆后才能发表评论　　<a href="@Url.Action("Login", "Member")" title="点击登陆">点击登陆</a></p>
+                    }
+                }
+                else
+                {
+            <p>你已经登录　　<a href="@Url.Action("LogOut", "Member")" title="点击退出">点击退出</a></p>
+
+            <div class="lybd2">
+                <div class="lybd2_1">
+                    <textarea name="Content" id="comment" cols="58" rows="10" tabindex="4"></textarea>
+                </div>
+                <div class="lybd2_2">
+                    <input name="submit" type="submit" id="submit" tabindex="5" value=" ">
+                    <input type="hidden" name="ArticleId" value="@Model.ArticleId" id="comment_post_ID">
+                    <input type="hidden" name="ParentId" id="comment_parent" value="0">
+                </div>
+            </div>
+
+            <div style="font: 0px/0px sans-serif; clear: both; display: block"></div>
+                }
+
+            }
+        }
+
+
+    </div>
+
+</div>
+<script type="text/javascript">
+    $('ol li .children').not($('ol li .children .children')).css("margin-top", "10px")
+</script>

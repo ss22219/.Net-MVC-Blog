@@ -1,0 +1,10 @@
+E:\demo\MyBlog\Blog.Model\bin\Debug\Blog.Model.dll
+E:\demo\MyBlog\Blog.Model\bin\Debug\Blog.Model.pdb
+E:\demo\MyBlog\Blog.Model\obj\Debug\Blog.Model.dll
+E:\demo\MyBlog\Blog.Model\obj\Debug\Blog.Model.pdb
+E:\demo\MyBlog\Blog.Model\obj\Debug\Blog.Model.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\demo\MyBlog\Blog.Model\bin\Debug\Blog.Model.dll
+C:\Users\Administrator\Desktop\demo\MyBlog\Blog.Model\bin\Debug\Blog.Model.pdb
+C:\Users\Administrator\Desktop\demo\MyBlog\Blog.Model\obj\Debug\Blog.Model.dll
+C:\Users\Administrator\Desktop\demo\MyBlog\Blog.Model\obj\Debug\Blog.Model.pdb
+C:\Users\Administrator\Desktop\demo\MyBlog\Blog.Model\obj\Debug\Blog.Model.csprojResolveAssemblyReference.cache

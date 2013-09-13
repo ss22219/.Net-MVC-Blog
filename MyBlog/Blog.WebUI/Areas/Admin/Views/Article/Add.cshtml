@@ -1,0 +1,537 @@
+﻿@model Blog.Model.Article
+@using Blog.WebUI.Areas.Admin.Models;
+@{
+    ViewBag.Title = "添加文章";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div id="screen-meta" class="metabox-prefs" style="display: none;">
+
+    <div id="contextual-help-wrap" class="hidden" tabindex="-1" aria-label="“上下文帮助”选项卡" style="display: none;">
+        <div id="contextual-help-back"></div>
+        <div id="contextual-help-columns">
+            <div class="contextual-help-tabs">
+                <ul>
+
+                    <li id="tab-link-customize-display" class="">
+                        <a href="#tab-panel-customize-display" aria-controls="tab-panel-customize-display">自定义显示方式								</a>
+                    </li>
+
+                    <li id="tab-link-title-post-editor">
+                        <a href="#tab-panel-title-post-editor" aria-controls="tab-panel-title-post-editor">标题和文章编辑器								</a>
+                    </li>
+
+                    <li id="tab-link-inserting-media" class="active">
+                        <a href="#tab-panel-inserting-media" aria-controls="tab-panel-inserting-media">插入多媒体								</a>
+                    </li>
+
+                    <li id="tab-link-publish-box">
+                        <a href="#tab-panel-publish-box" aria-controls="tab-panel-publish-box">发布设置								</a>
+                    </li>
+
+                    <li id="tab-link-discussion-settings">
+                        <a href="#tab-panel-discussion-settings" aria-controls="tab-panel-discussion-settings">讨论设置								</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="contextual-help-sidebar">
+                <p>您亦可通过<a href="options-writing.php">快速发布书签</a>来创建文章。</p>
+            </div>
+
+            <div class="contextual-help-tabs-wrap">
+
+                <div id="tab-panel-customize-display" class="help-tab-content" style="display: none;">
+                    <p>标题区域和文章编辑区域的位置是固定的，但您可以通过拖拽来重新排列其它模块。点击模块标题可以最小化或展开模块。一些模块是默认隐藏的，您也可以使用“显示选项”在页面中取消隐藏这些模块（摘要、发送 Trackback、自定义栏目、讨论、别名，和作者）。您还可以切换一栏/两栏布局。</p>
+                </div>
+
+                <div id="tab-panel-title-post-editor" class="help-tab-content" style="display: none;">
+                    <p><strong>标题</strong> - 为您的文章键入一个标题。之后，您将看到一个固定链接地址，它是可以编辑的。</p>
+                    <p><strong>文章编辑器</strong> - 键入您文章的文本。编辑器有两种编辑模式：“可视化”和“文本”。点击相应的标签可进行切换。“可视化”模式显示所见即所得编辑器。点击工具栏最后一个图标可以展开第二行控制按钮；在“文本”模式中，您可以输入原始 HTML 标签和文章文本。点击文章编辑器上方的图标可以向文章插入多媒体文件。您可以通过“可视化”模式中的“全屏”图标（第一行倒数第二个）来使用“全屏写作界面”。进入该界面后，将鼠标移至上方，控制按钮就会显示出来。点击“退出全屏”可返回标准编辑界面。</p>
+                </div>
+
+                <div id="tab-panel-inserting-media" class="help-tab-content active" style="">
+                    <p>您可以通过点击“添加媒体”按钮上传或插入多媒体文件（图像、音频、文档等）。您可以从已经上传到媒体库的文件中选择，并直接插入文章，或者上传新的文件，然后再插入。要创建相册，选择要添加的图像，并点击“创建新相册”按钮。</p>
+                    <p>您也可以从 Twitter、YouTube、56.com、Youku、Tudou 和 Flickr 等网站添加多媒体内容。只需在您的文章里另起一行，然后粘贴页面的网址。请<a href="http://codex.wordpress.org/zh-cn:%E5%B5%8C%E5%85%A5">阅读文档</a>来了解用法。</p>
+                </div>
+
+                <div id="tab-panel-publish-box" class="help-tab-content" style="display: none;">
+                    <p>本页几个模块控制内容发布方式：</p>
+                    <ul>
+                        <li><strong>发布</strong> - 您可以在“发布”区域设置文章的属性。点击“状态”、“可见性”、“发布”右侧的“编辑”按钮，可以调整更多设置。可见性设置包括密码保护和文章置顶；通过设置发布选项，可实现定时发布功能。</li>
+                        <li><strong>文章形式</strong> - 该选项决定主题应如何显示您的某篇文章。通常，主题对于“标准”文章，会正常显示标题和段落；而对于“日志”式文章，则通常不显示标题。请浏览 Codex 文档来查看<a href="http://codex.wordpress.org/zh-cn:%E6%96%87%E7%AB%A0%E5%BD%A2%E5%BC%8F#.E6.94.AF.E6.8C.81.E7.9A.84.E5.BD.A2.E5.BC.8F">每种文章形式的介绍</a>。您的主题或许会支持最多十种文章形式。</li>
+                        <li><strong>特色图片</strong> - 为文章配上一张特色图片。若您的主题具有“特色图片”功能，这张图片可能会显示在首页、页面顶端等位置。</li>
+                    </ul>
+                </div>
+
+                <div id="tab-panel-discussion-settings" class="help-tab-content" style="display: none;">
+                    <p><strong>发送 trackback</strong> - Trackback 是通知旧博客系统您已链接至它们的一种方式。请输入希望发送 trackback 至哪个（哪些） URL。如果您链接到的是其他 WordPress 站点，则无须填写此栏，这些站点将自动通过 pingback 方式通知。</p>
+                    <p><strong>讨论</strong> - 您可以设置评论和引用通告的开关。若该篇文章有评论，您可以在这里浏览、审核评论。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="screen-meta-links">
+    <div id="contextual-help-link-wrap" class="hide-if-no-js screen-meta-toggle" style="">
+        <a href="#contextual-help-wrap" id="contextual-help-link" class="show-settings" aria-controls="contextual-help-wrap" aria-expanded="false">帮助</a>
+    </div>
+</div>
+
+<div class="wrap">
+    <div id="icon-edit" class="icon32 icon32-posts-post">
+        <br>
+    </div>
+    <h2>添加文章</h2>
+    <div id="lost-connection-notice" class="error hidden below-h2">
+        <p>
+            <span class="spinner"></span><strong>Connection lost.</strong> Saving has been disabled until you’re reconnected.	<span class="hide-if-no-sessionstorage">We’re backing up this post in your browser, just in case.</span>
+        </p>
+    </div>
+
+    <form name="post" action="post.php" method="post" id="post">
+        <input type="hidden" id="_wpnonce" name="_wpnonce" value="a11e7d4610">
+        <input type="hidden" id="hiddenaction" name="action" value="editpost">
+        <input type="hidden" id="originalaction" name="originalaction" value="editpost">
+        <input type="hidden" id="original_post_status" name="Status" value="@Model.Status">
+        <input type="hidden" id="post_ID" name="ArticleId" value="@Model.ArticleId">
+        <div id="poststuff">
+            <div id="post-body" class="metabox-holder columns-2">
+                <div id="post-body-content">
+
+                    <div id="titlediv">
+                        <div id="titlewrap">
+                            <label class="screen-reader-text" id="title-prompt-text" for="title">在此键入标题</label>
+                            <input type="text" name="Title" size="30" value="@Model.Title" id="title" autocomplete="off">
+                        </div>
+                        <div class="inside">
+                        </div>
+                        <input type="hidden" id="samplepermalinknonce" name="samplepermalinknonce" value="f928e3df89">
+                    </div>
+                    <!-- /titlediv -->
+                    <div id="postdivrich" class="postarea edit-form-section">
+                        <div id="wp-content-wrap" class="wp-core-ui wp-editor-wrap html-active">
+                            <div id="wp-content-editor-container" class="wp-editor-container">
+                                <textarea class="wp-editor-area" style="height: 397px; margin-top: 0px; margin-bottom: 0px;" cols="40" name="content" id="content">@Model.Content</textarea>
+                            </div>
+                        </div>
+
+                        <table id="post-status-info">
+                            <tbody>
+                                <tr>
+                                    <td id="wp-word-count">字数：<span class="word-count">@Model.Content.Length</span></td>
+                                    <td class="autosave-info">
+                                        <span class="autosave-message">&nbsp;</span>
+                                        <span id="last-edit">最后由 @Model.Author.UserName 编辑于 @Model.ModifyDate.ToString("yyyy 年 M 月 d 日 hh:mm")</span>	</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                <!-- /post-body-content -->
+
+                <div id="postbox-container-1" class="postbox-container">
+                    <div id="side-sortables" class="meta-box-sortables">
+                        <div id="submitdiv" class="postbox ">
+                            <div class="handlediv" title="点击以切换">
+                                <br>
+                            </div>
+                            <h3 class="hndle"><span>发布</span></h3>
+                            <div class="inside">
+                                <div class="submitbox" id="submitpost">
+
+                                    <div id="minor-publishing">
+
+                                        <div id="minor-publishing-actions">
+                                            <div id="save-action">
+                                                <span class="spinner"></span>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <!-- #minor-publishing-actions -->
+
+                                        <div id="misc-publishing-actions">
+
+                                            <div class="misc-pub-section">
+                                                <label for="post_status">状态：</label>
+                                                <span id="post-status-display">@Blog.Domain.ArticleStatus.Names[Model.Status]</span>
+
+                                                <div id="post-status-select" class="hide-if-js">
+                                                    <input type="hidden" name="hidden_post_status" id="hidden_post_status" value="publish">
+                                                    <select name="post_status" id="post_status">
+                                                        <option @if (Model.Status == Blog.Domain.ArticleStatus.Open)
+                                                                {
+                                                                    @Html.Raw("selected=\"selected\"");
+                                                                } value="@Blog.Domain.ArticleStatus.Open">@Blog.Domain.ArticleStatus.Names[Blog.Domain.ArticleStatus.Open]</option>
+                                                        <option @if (Model.Status == Blog.Domain.ArticleStatus.Temp)
+                                                                {
+                                                                    @Html.Raw("selected=\"selected\"");
+                                                                } value="@Blog.Domain.ArticleStatus.Temp">@Blog.Domain.ArticleStatus.Names[Blog.Domain.ArticleStatus.Temp]</option>
+                                                    </select>
+                                                    <a href="#post_status" class="save-post-status hide-if-no-js button">确定</a>
+                                                    <a href="#post_status" class="cancel-post-status hide-if-no-js">取消</a>
+                                                </div>
+
+                                            </div>
+                                            <!-- .misc-pub-section -->
+
+
+                                            <!-- .misc-pub-section -->
+
+
+                                            <div class="misc-pub-section curtime">
+                                                <span id="timestamp">发布于：@Model.CreateDate.ToString("yyyy 年 M 月 d 日 h:mm")</span>
+                                                <div id="timestampdiv" class="hide-if-js">
+                                                    <div class="timestamp-wrap">
+                                                        <input type="text" id="yy" name="yy" value="@Model.CreateDate.ToString("yyyy")" size="4" maxlength="4" autocomplete="off">
+                                                        <input type="text" id="mm" name="mm" value="@Model.CreateDate.ToString("MM")" size="2" maxlength="2" autocomplete="off">
+                                                        <input type="text" id="dd" name="dd" value="@Model.CreateDate.ToString("dd")" size="2" maxlength="2" autocomplete="off">,
+                                                        @@
+                                                        <input type="text" id="hh" name="hh" value="@Model.CreateDate.ToString("hh")" size="2" maxlength="2" autocomplete="off">
+                                                        :
+                                                        <input type="text" id="mn" name="mn" value="@Model.CreateDate.ToString("mm")" size="2" maxlength="2" autocomplete="off">
+                                                    </div>
+
+                                                    <p>
+                                                        <a href="#edit_timestamp" class="save-timestamp hide-if-no-js button">确定</a>
+                                                        <a href="#edit_timestamp" class="cancel-timestamp hide-if-no-js">取消</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+
+                                    <div id="major-publishing-actions">
+
+                                        <div id="publishing-action">
+                                            <span class="spinner"></span>
+                                            <input name="original_publish" type="hidden" id="original_publish" value="发布">
+                                            <input name="save" type="submit" class="button button-primary button-large" id="publish" accesskey="p" value="发布">
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="categorydiv" class="postbox ">
+                            <div class="handlediv" title="点击以切换">
+                                <br>
+                            </div>
+                            <h3 class="hndle"><span>分类目录</span></h3>
+                            <div class="inside">
+                                <div id="taxonomy-category" class="categorydiv">
+                                    <ul id="category-tabs" class="category-tabs">
+                                        <li class="tabs"><a href="#category-all">所有分类目录</a></li>
+                                    </ul>
+
+                                    <div id="category-all" class="tabs-panel">
+                                        @Html.BulidArticleCategory(Model)
+                                    </div>
+                                    <div id="category-adder" class="wp-hidden-children">
+                                        <h4>
+                                            <a id="category-add-toggle" href="#category-add" class="hide-if-no-js">+ 添加新分类目录					</a>
+                                        </h4>
+                                        <p id="category-add" class="category-add wp-hidden-child">
+                                            <label class="screen-reader-text" for="newcategory">添加新分类目录</label>
+                                            <input type="text" name="newcategory" id="newcategory" class="form-required form-input-tip" value="" aria-required="true">
+                                            <label class="screen-reader-text" for="newcategory_parent">
+                                                父级分类目录：				
+                                            </label>
+                                            <select name="newcategory_parent" id="newcategory_parent" class="postform">
+                                                <option value="0">— 父级分类目录 —</option>
+                                                @Html.BulidCategoryList()
+                                            </select>
+                                            <input type="button" id="category-add-submit" data-wp-lists="add:categorychecklist:category-add" class="button category-add-submit" value="添加新分类目录">
+                                            <input type="hidden" id="_ajax_nonce-add-category" name="_ajax_nonce-add-category" value="ee65f93767">
+                                            <span id="category-ajax-response"></span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tagsdiv-post_tag" class="postbox ">
+                            <div class="handlediv" title="点击以切换">
+                                <br>
+                            </div>
+                            <h3 class="hndle"><span>标签</span></h3>
+                            <div class="inside">
+                                <div class="tagsdiv" id="post_tag">
+                                    <div class="jaxtag">
+                                        <div class="nojs-tags hide-if-js">
+                                            <p>添加或删除标签</p>
+                                            <textarea name="tax_input[post_tag]" rows="3" cols="20" class="the-tags" id="tax-input-post_tag"></textarea>
+                                        </div>
+                                        <div class="ajaxtag hide-if-no-js">
+                                            <label class="screen-reader-text" for="new-tag-post_tag">标签</label>
+                                            <div class="taghint">添加新标签</div>
+                                            <p>
+                                                <input type="text" id="new-tag-post_tag" name="Tag" class="newtag form-input-tip" size="16" autocomplete="off" value="">
+                                                <input type="button" class="button tagadd" value="添加">
+                                            </p>
+                                        </div>
+                                        <p class="howto">多个标签请用英文逗号（,）分开</p>
+                                    </div>
+
+                                    <div class="tagchecklist">
+                                    </div>
+                                </div>
+                                <p class="hide-if-no-js"><a href="#titlediv" class="tagcloud-link" id="link-post_tag">从常用标签中选择</a></p>
+                                <p id="tagcloud-post_tag" class="the-tagcloud" style="display: none;">
+                                    @foreach (Blog.Model.Category tag in ViewBag.LastTag)
+                                    {
+                                        <a href="#" class="tag-link-@tag.Name" title="@tag.Count 个话题" style="font-size: 8pt;">@tag.Name</a>
+                                    }
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /post-body -->
+            <br class="clear">
+        </div>
+        <!-- /poststuff -->
+    </form>
+</div>
+
+
+<div class="clear"></div>
+
+@section Foot{
+    <script src="@Url.Content("~/Scripts/tinymce/tinymce.min.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $('.edit-post-status').click(function (e) {
+            $(this).hide()
+            $('#post-status-select').show(200)
+            return false
+        })
+        $('.cancel-post-status').click(function (e) {
+            $('#post-status-select').hide(200)
+            $('.edit-post-status').show()
+            return false
+        })
+        $('.save-post-status').click(function (e) {
+            var status = $('#post_status').val()
+            $.ajax({
+                method: 'post',
+                url: '@Url.Action("AjaxUpdate", "Article")',
+                data: 'ArticleId=@Model.ArticleId&Status=' + status,
+                success: function (d) {
+                    if (d.success) {
+                        $('#post-status-display').text(d.message)
+                        $('#post-status-select').hide(200)
+                        $('.edit-post-status').show()
+                    } else {
+                        alert(d.message)
+                    }
+                },
+                error: function (e) {
+                    if (e.status == 404) {
+                        alert('未找到该路径!')
+                    }
+                    else if (e.status == 500) {
+                        alert('服务器异常！')
+                    }
+                }
+            })
+        })
+        $('.edit-timestamp').click(function (e) {
+            $(this).hide()
+            $('#timestampdiv').show(200)
+            return false
+        })
+        $('.cancel-timestamp').click(function (e) {
+            $('#timestampdiv').hide(200)
+            $('.edit-timestamp').show()
+            return false;
+        })
+        $('.save-timestamp').click(function (e) {
+            var date = $('#yy').val() + '/' + $('#mm').val() + '/' + $('#dd').val() + ' ' + $('#hh').val() + ':' + $('#mn').val()
+            $.ajax({
+                method: 'post',
+                url: '@Url.Action("AjaxUpdate", "Article", new { id = Model.ArticleId })',
+                data: 'ArticleId=@Model.ArticleId&CreateDate=' + date,
+                success: function (d) {
+                    if (d.success) {
+                        $('#timestamp').text('发布于：' + d.message)
+                        $('#timestampdiv').hide(200)
+                        $('.edit-timestamp').show()
+                    } else {
+                        alert(d.message)
+                    }
+                },
+                error: function (e) {
+                    if (e.status == 404) {
+                        alert('未找到该路径!')
+                    }
+                    else if (e.status == 500) {
+                        alert('服务器异常！')
+                    }
+                }
+            })
+        })
+        $('#category-add-toggle').click(function () {
+            if ($('#category-add').css('display') == 'none') {
+                $('#category-add').show(200)
+            } else {
+                $('#category-add').hide(200)
+            }
+            return false
+        })
+        $('#category-add-submit').click(function () {
+            var name = $('#newcategory').val()
+            var parentId = $('#newcategory_parent').val()
+            if (name.length > 0) {
+                $.ajax({
+                    url: '@Url.Action("AjaxAdd", "Category")',
+                    method: 'post',
+                    cache: false,
+                    data: 'name=' + name + '&parentId=' + parentId + '&articleId=@Model.ArticleId',
+                    success: function (d) {
+                        if (d.success) {
+                            $('#category-add').hide(200)
+                            $('#newcategory').val("")
+                            $('#category-all').html(d.data)
+                            $('#newcategory_parent').html('<option value="0">— 父级分类目录 —</option>' + d.data2)
+                            $('.categorychecklist input').click(function () {
+                                if (this.checked) {
+                                    $(this).attr("checked", "checked")
+                                } else {
+                                    $(this).removeAttr("checked")
+                                }
+                            })
+                        } else {
+                            alert(d.message)
+                        }
+                    },
+                    error: function (e) {
+                        if (e.status == 404) {
+                            alert('未找到该路径!')
+                        }
+                        else if (e.status == 500) {
+                            alert('服务器异常！')
+                        }
+                    }
+                })
+            }
+            return false
+        })
+        tinymce.init({
+            selector: 'textarea',
+            language: 'zh_CN',
+            theme: "modern",
+            plugins: [
+                "advlist autolink lists link image charmap preview hr anchor pagebreak",
+                "searchreplace visualblocks visualchars code fullscreen",
+                "insertdatetime media nonbreaking table contextmenu directionality",
+                "emoticons textcolor"
+            ],
+            toolbar1: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | forecolor backcolor emoticons | preview code fullscreen",
+            image_advtab: true
+        })
+        $('.tagchecklist span a').click(function () {
+            $(this).parent().remove()
+        })
+        $('#tagcloud-post_tag a').click(function () {
+            addTag($(this).text())
+            return false
+        })
+        window.onload = function () {
+            var editor = tinymce.editors[0]
+            $(editor.getBody()).keydown(function () {
+                $('.word-count').text(editor.getBody().innerText.length)
+            })
+            $(editor.getBody()).blur(function () {
+                $('.word-count').text(editor.getBody().innerText.length)
+            })
+        }
+        $('.tagadd').click(function () {
+            var str = $('#new-tag-post_tag').val().trim();
+            var list = str.split(',')
+            for (var i = 0; i < list.length; i++) {
+                addTag(list[i])
+            }
+            return false
+        })
+        $('#link-post_tag').click(function () {
+            if ($('#tagcloud-post_tag').css('display') == 'none') {
+                $('#tagcloud-post_tag').show(200)
+            } else {
+                $('#tagcloud-post_tag').hide(200)
+            }
+            return false
+        })
+        $('.categorychecklist input').click(function () {
+            if (this.checked) {
+                $(this).attr("checked", "checked")
+            } else {
+                $(this).removeAttr("checked")
+            }
+        })
+        $('#publish').click(function () {
+            var data = 'ArticleId=@Model.ArticleId&Title=' + encodeURI($('#title').val().trim()) + '&Content=' + escape(tinymce.editors[0].getContent().replace(/("|')[\.\/]+?Scripts/g, "$1/Scripts"))
+            var categorys = ""
+            var tags = ""
+            $('.categorychecklist input[checked="checked"]').each(function (i, e) {
+                categorys += '&Categorys=' + $(e).val()
+            })
+            $('.tagchecklist span').each(function (i, e) {
+                tags += '&Tags=' + encodeURI($(e).text().substring(2).trim())
+            })
+            data += categorys + tags
+            $('#publish').addClass("button-primary-disabled")
+            $('.spinner').css('display', 'inline')
+            $.ajax({
+                url: '@Url.Action("AjaxAdd")',
+                method: 'post',
+                cache: false,
+                data: data,
+                success: function (d) {
+                    if (d.success) {
+                        $('#publish').removeClass("button-primary-disabled")
+                        $('.spinner').css('display', 'none')
+                        window.location = '@Url.Action("Edit", new { id = 0 })' + d.data
+                    } else {
+                        $('#publish').removeClass("button-primary-disabled")
+                        $('.spinner').css('display', 'none')
+                        alert(d.message)
+                    }
+                },
+                error: function (e) {
+                    if (e.status == 404) {
+                        alert('未找到该路径!')
+                    }
+                    else if (e.status == 500) {
+                        alert('服务器异常！')
+                    }
+                    $('#publish').removeClass("button-primary-disabled")
+                    $('.spinner').css('display', 'none')
+                }
+            })
+            return false;
+        })
+        function addTag(name) {
+            if (name.trim().length == 0) {
+                return
+            }
+            var isOn = false;
+            $('.tagchecklist span').each(function (i, e) {
+                var str = $(e).text()
+                if (str.substr(-name.trim().length) == name.trim()) {
+                    isOn = true
+                }
+            })
+            if (!isOn) {
+                $('.tagchecklist').html($('.tagchecklist').html() + '<span><a id="post_tag-check-num" class="ntdelbutton">X</a>&nbsp;' + name + '</span>')
+            }
+
+            $('.tagchecklist span a').click(function () {
+                $(this).parent().remove()
+            })
+        }
+    </script>
+}

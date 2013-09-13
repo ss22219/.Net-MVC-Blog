@@ -1,0 +1,150 @@
+﻿@model IList<Blog.Model.Category>
+@{
+    ViewBag.Title = "分类目录";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@using Blog.WebUI.Areas.Admin.Models
+
+@helper BulidCategoryList(int parentId = 0, int level = 0)
+{
+    //Razor引擎下Helper 
+    IList<Blog.Model.Category> list = null;
+    if (parentId == 0)
+    {
+        list = Model.Where(c => c.Parent == null && c.Type == Blog.Domain.CategoryType.Category).ToList();
+    }
+    else
+    {
+        list = Model.Where(c => c.Parent != null && c.Parent.CategoryId == parentId).ToList();
+    }
+    foreach (var category in list)
+    {
+        string span = "";
+        for (int i = 0; i < level; i++)
+        {
+            span += '—';
+        }
+    <tr id="tag-@category.CategoryId">
+        <th scope="row" class="check-column">
+            <input id="cb-select-@category.CategoryId" type="checkbox" name="CategoryIds" value="@category.CategoryId">
+        </th>
+        <td class="name column-name">
+            <strong>
+                <a class="row-title" href="@Url.Action("Edit", new { id = category.CategoryId })" title="编辑“@category.Name”">@span@category.Name</a>
+            </strong>
+            <br>
+            <div class="row-actions">
+                <span class="edit">
+                    @Html.ActionLink("编辑", "Edit", new { id = category.CategoryId }, null) |
+                </span>
+                <span class="view">
+                    @Html.ActionLink("查看", "Category", "Category", new { area = "", id = category.CategoryId }, null)
+                </span>
+            </div>
+        </td>
+        <td class="posts column-posts">@Html.ActionLink(category.Count.ToString(), "Index", "Article", new { Category = category.CategoryId }, null)</td>
+    </tr>
+        if (category.Children != null)
+        {
+    @BulidCategoryList(category.CategoryId, level + 1)
+        }
+    }
+}
+
+<div class="wrap nosubsub">
+    <div id="icon-edit" class="icon32 icon32-posts-post">
+        <br>
+    </div>
+    <h2>分类目录</h2>
+    @if (ViewBag.Message != null)
+    {
+        <div id="message" class="updated below-h2">
+            <p>
+                @ViewBag.Message
+            </p>
+        </div>
+    }
+    <div id="ajax-response"></div>
+
+    <br class="clear">
+
+    <div id="col-container">
+
+        <div id="col-right">
+            <div class="col-wrap">
+                <form id="posts-filter" method="post" action="@Url.Action("Delete")">
+
+                    <input type="hidden" id="_wpnonce" name="_wpnonce" value="36c8bd4c19"><input type="hidden" name="_wp_http_referer" value="/wp-admin/edit-tags.php?taxonomy=category">
+
+                    <table class="wp-list-table widefat fixed tags">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="manage-column column-cb check-column" style="">
+                                    <label class="screen-reader-text" for="cb-select-all-1">全选</label><input id="cb-select-all-1" type="checkbox"></th>
+                                <th scope="col" class="manage-column column-name sortable desc" style=""><span>名称</span></th>
+                                <th scope="col" class="manage-column column-posts num sortable desc" style=""><span>文章</span></th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody id="the-list" data-wp-lists="list:tag">
+                            @BulidCategoryList()
+                        </tbody>
+                    </table>
+                    <div class="tablenav bottom">
+
+                        <div class="alignleft actions">
+                            <select name="method">
+                                <option value="delete">删除</option>
+                            </select>
+                            <input type="submit" name="" id="doaction2" class="button action" value="应用">
+                        </div>
+                        <br class="clear">
+                    </div>
+
+                    <br class="clear">
+                </form>
+
+            </div>
+        </div>
+        <!-- /col-right -->
+
+        <div id="col-left">
+            <div class="col-wrap">
+
+
+                <div class="form-wrap">
+                    <h3>添加新分类目录</h3>
+                    <form id="addtag" method="post" action="@Url.Action("Add")" class="validate">
+                        <input type="hidden" name="type" value="@Blog.Domain.CategoryType.Category" />
+                        <div class="form-field form-required">
+                            <label for="tag-name">名称</label>
+                            <input name="Name" id="tag-name" type="text" value="" size="40" aria-required="true">
+                            <p>这将是它在站点上显示的名字。</p>
+                        </div>
+                        <div class="form-field">
+                            <label for="parent">父级</label>
+                            <select name="parentId" id="parent" class="postform">
+                                <option value="-1">无</option>
+                                @Html.BulidCategoryList()
+                            </select>
+                            <p>分类目录和标签不同，它可以有层级关系。您可以有一个“音乐”分类目录，在这个目录下可以有叫做“流行”和“古典”的子目录。</p>
+                        </div>
+
+                        <p class="submit">
+                            <input type="submit" name="submit" id="submit" class="button button-primary" value="添加新分类目录">
+                        </p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <!-- /col-left -->
+
+    </div>
+    <!-- /col-container -->
+</div>
+<!-- /wrap -->
+<script type="text/javascript">
+    try { document.forms.addtag['tag-name'].focus(); } catch (e) { }
+</script>

@@ -1,0 +1,46 @@
+﻿@using Blog.WebUI.Models;
+@model int
+<div id="wpadminbar" class="nojq nojs" role="navigation">
+    <div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="顶部导航工具栏。" tabindex="0">
+        <ul id="wp-admin-bar-root-default" class="ab-top-menu">
+            <li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item" aria-haspopup="true" href="@Url.Action("About", "Main")" title="关于 WordPress"><span class="ab-icon"></span></a>
+                <div class="ab-sub-wrapper">
+                    <ul id="wp-admin-bar-wp-logo-default" class="ab-submenu">
+                        <li id="wp-admin-bar-about"><a class="ab-item" href="@Url.Action("About", "Main")">关于 Blog</a>		</li>
+                    </ul>
+                </div>
+            </li>
+            <li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item" aria-haspopup="true" href="@Url.Action("Index", "Home", new { area = "" })">@ViewBag.BlogTitle</a><div class="ab-sub-wrapper">
+                <ul id="wp-admin-bar-site-name-default" class="ab-submenu">
+                    <li id="wp-admin-bar-view-site"><a class="ab-item" href="@Url.Action("Index", "Home", new { area = "" })">查看站点</a>		</li>
+                </ul>
+            </div>
+            </li>
+            <li id="wp-admin-bar-comments">
+                <a class="ab-item" href="@Url.Action("Index", "Comment")" title="@Model 条评论待审">
+                    <span class="ab-icon"></span>
+                    <span id="ab-awaiting-mod" class="ab-label awaiting-mod pending-count count-@Model">@Model</span>
+                </a>
+            </li>
+            <li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item" aria-haspopup="true" href="@Url.Action("Add","Aritcle")" title="添加"><span class="ab-icon"></span><span class="ab-label">新建</span></a><div class="ab-sub-wrapper">
+                <ul id="wp-admin-bar-new-content-default" class="ab-submenu">
+                    <li id="wp-admin-bar-new-post"><a class="ab-item" href="@Url.Action("Add", "Article")">文章</a>		</li>
+            </li>
+            <li id="wp-admin-bar-new-user"><a class="ab-item" href="@Url.Action("Add", "User")">用户</a>		</li>
+        </ul>
+    </div>
+    </li>
+        </ul>
+        <ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+            <li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item" aria-haspopup="true" href="@Url.Action("Info", "User")" title="我的帐户">您好，@ViewBag.User.UserName<img alt='' src='@Html.Picture(Url, (Blog.Model.User)ViewBag.User)' class='avatar avatar-16 photo' height='16' width='16' /></a><div class="ab-sub-wrapper">
+                <ul id="wp-admin-bar-user-actions" class="ab-submenu">
+                    <li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="@Url.Action("Info", "User")">
+                        <img alt='' src='@Html.Picture(Url, (Blog.Model.User)ViewBag.User)' class='avatar avatar-64 photo' height='64' width='64' /><span class='display-name'>@ViewBag.User.UserName</span></a>		</li>
+                    <li id="wp-admin-bar-edit-profile"><a class="ab-item" href="@Url.Action("Info", "User")">编辑我的个人资料</a>		</li>
+                    <li id="wp-admin-bar-logout"><a class="ab-item" href="@Url.Action("LogOut", "Member", new { area = "" })">登出</a>		</li>
+                </ul>
+            </div>
+            </li>
+        </ul>
+</div>
+</div>

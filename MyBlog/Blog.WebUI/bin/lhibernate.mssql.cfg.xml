@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
+  <session-factory>
+    <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+    <property name="connection.connection_string_name">DefaultConnection</property>
+    <property name="dialect">NHibernate.Dialect.MsSql2008Dialect</property>
+    <property name="hbm2ddl.auto">update</property>
+    <property name="format_sql">true</property>
+    <mapping assembly="Blog.Model"/>
+  </session-factory>
+</hibernate-configuration>

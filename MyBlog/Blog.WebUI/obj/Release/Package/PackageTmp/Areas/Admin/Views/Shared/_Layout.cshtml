@@ -1,0 +1,99 @@
+﻿﻿<!DOCTYPE html>
+<!--[if IE 8]>
+<html xmlns="http://www.w3.org/1999/xhtml" class="ie8 wp-toolbar"  lang="zh-CN">
+<![endif]-->
+<!--[if !(IE 8) ]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" class="wp-toolbar" lang="zh-CN">
+<!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>@ViewBag.Title &lsaquo; @ViewBag.BlogTitle</title>
+    <script type='text/javascript' src='@Url.Content("~/Scripts/jquery-1.7.1.min.js")'></script>
+    <script type="text/javascript">
+        addLoadEvent = function (func) { if (typeof jQuery != "undefined") jQuery(document).ready(func); else if (typeof wpOnload != 'function') { wpOnload = func; } else { var oldonload = wpOnload; wpOnload = function () { oldonload(); func(); } } };
+        var ajaxurl = '/Admin',
+            pagenow = 'edit-comments',
+            typenow = '',
+            adminpage = 'edit-comments-php',
+            thousandsSeparator = ',',
+            decimalPoint = '.',
+            isRtl = 0;
+    </script>
+    <link rel='stylesheet' href='@Url.Content("~/Content/Admin/css/load-styles.css")' type='text/css' media='all' />
+    <link rel='stylesheet' id='zh-cn-l10n-administration-screens-css' href='@Url.Content("~/Content/Admin/css/zh_CN-administration-screens.css")' type='text/css' media='all' />
+    <link rel='stylesheet' id='colors-css' href='@Url.Content("~/Content/Admin/css/colors-fresh.min.css")' type='text/css' media='all' />
+    <!--[if lte IE 7]>
+<link rel='stylesheet' id='ie-css'  href='@Url.Content("~/Content/Admin/css/ie.min.css")' type='text/css' media='all' />
+<![endif]-->
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var userSettings = { "url": "\/", "uid": "1", "time": "1374950915" };/* ]]> */
+    </script>
+    <style type="text/css" media="print">
+        #wpadminbar {
+            display: none;
+        }
+    </style>
+    @RenderSection("Head", false)
+</head>
+<body class="wp-admin wp-core-ui js  edit-comments-php auto-fold admin-bar branch-3-5 version-3-5-2 admin-color-fresh locale-zh-cn no-customize-support">
+
+
+
+    <div id="wpwrap">
+        <a tabindex="1" href="#wpbody-content" class="screen-reader-shortcut">跳至主内容</a>
+
+        <div id="adminmenuback"></div>
+        <div id="adminmenuwrap">
+            <div id="adminmenushadow"></div>
+            @Html.Partial("_Sidebar")
+        </div>
+        <div id="wpcontent">
+
+            @{Html.RenderAction("Index", "Head");}
+
+
+            <div id="wpbody">
+
+                <div id="wpbody-content" aria-label="主内容" tabindex="0">
+                    @RenderBody()
+                    <div class="clear"></div>
+                </div>
+                <!-- wpbody-content -->
+                <div class="clear"></div>
+            </div>
+            <!-- wpbody -->
+            <div class="clear"></div>
+        </div>
+        <!-- wpcontent -->
+
+        <div id="wpfooter">
+            <p id="footer-left" class="alignleft"><span id="footer-thankyou">感谢使用 <a href="#">Blog</a> 进行创作</span></p>
+            <p id="footer-upgrade" class="alignright">0.0.1 版本</p>
+            <div class="clear"></div>
+        </div>
+
+
+        <div class="clear"></div>
+    </div>
+    <!-- wpwrap -->
+    <script type='text/javascript' src='@Url.Content("~/Content/Admin/js/load-scripts.js")'></script>
+    <script type="text/javascript">if (typeof wpOnload == 'function') wpOnload();
+
+        jQuery(".contextual-help-tabs").delegate("a", "click focus",
+          function (d) {
+              var c = jQuery(this), b;
+              d.preventDefault();
+              if (c.is(".active a")) {
+                  return false
+              }
+              jQuery(".contextual-help-tabs .active").removeClass("active");
+              c.parent("li").addClass("active");
+              b = jQuery(c.attr("href"));
+              jQuery(".help-tab-content").not(b).removeClass("active").hide();
+              b.addClass("active").show()
+          });
+    </script>
+	@RenderSection("Foot",false)
+</body>
+</html>

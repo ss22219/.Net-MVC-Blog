@@ -1,0 +1,30 @@
+﻿    @model Blog.WebUI.Models.LoginModel
+@{
+    Layout = "~/Views/Member/_MemberLayout.cshtml";
+    ViewBag.Title = "登陆";
+}
+
+@using (Html.BeginForm("Login", "Member", FormMethod.Post, new { id = "loginform" }))
+{
+    <form name="loginform" id="loginform" method="post" action="@Url.Action("Login", "Member")">
+        @Html.Hidden("ReturnUrl",(string)ViewBag.ReturnUrl)
+        <p>
+            <label for="user_login">
+                用户名<br />
+                <input type="text" name="UserName" id="user_login" class="input" value="" size="20" /></label>
+        </p>
+        <p>
+            <label for="user_pass">
+                密码<br />
+                <input type="password" name="Password" id="user_pass" class="input" value="" size="20" /></label>
+        </p>
+        <p class="forgetmenot">
+            <label for="rememberme">
+                <input name="RememberMe" type="checkbox" id="rememberme" value="forever" />
+                记住我的登录信息</label>
+        </p>
+        <p class="submit">
+            <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="登录" />
+        </p>
+    </form>
+}

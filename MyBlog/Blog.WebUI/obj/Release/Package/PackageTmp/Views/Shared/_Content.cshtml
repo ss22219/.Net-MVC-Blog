@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Head{
+    @RenderSection("ContentHead",false)
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/BlueSpace/css/zdy2.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/BlueSpace/style.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/BlueSpace/css/zdy1.css")" type="text/css" />
+    <script type="text/javascript" src="@Url.Content("~/Content/themes/BlueSpace/js/alixixi_jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/themes/BlueSpace/js/script.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/themes/BlueSpace/js/pngtm.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/themes/BlueSpace/js/cfcoda.js")"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix('div, ul, img, li, input , a , textarea , ol , p , span , h1 , h2 , h3 , h4 , h5');
+    </script>
+
+    <style type="text/css">
+        .recentcomments a {
+            display: inline !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+    </style>
+    <style type="text/css">
+        .recentcomments a {
+            display: inline !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+    </style>
+}
+@Html.Partial("~/Views/Shared/_Head.cshtml")
+<div class="g3">
+    <div class="g3_1">
+        @{Html.RenderAction("Enum", "Sidebar",new { area = "" });}
+    </div>
+    <div class="g3_2">
+        @RenderBody()
+    </div>
+</div>
+@Html.Partial("~/Views/Shared/_Foot.cshtml")
+

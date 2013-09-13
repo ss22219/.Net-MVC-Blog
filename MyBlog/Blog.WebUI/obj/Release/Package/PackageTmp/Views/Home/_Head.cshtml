@@ -1,0 +1,56 @@
+﻿﻿<div id="main_zzjs_net">
+    <div id="float_zzjs">
+        <div class="logo_1">
+            <img src="@Url.Content("~/Content/themes/BlueSpace/images/logo.jpg")" />
+        </div>
+        <div class="dh1_1">
+            <img src="@Url.Content("~/Content/themes/BlueSpace/images/dhb_1.jpg")" />
+        </div>
+        <div id="navigation">
+            <div class="menu">
+                <ul>
+                    <li class="page_item page-item-2"><a href="@Url.Action("Index", "Article", new
+                                                          {
+                                                              id
+                                                                  = 1
+                                                          })">示例页面</a></li>
+                    <li class="page_item page-item-8"><a href="@Url.Action("Index", "Article", new
+                                                          {
+                                                              id
+                                                                  = 1
+                                                          })">默认桌面</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="dh1_1">
+            <img src="@Url.Content("~/Content/themes/BlueSpace/images/dhb_2.png")" />
+        </div>
+    </div>
+</div>
+<div id="header">
+    <div class="ss001">
+        <div class="ss002">Search</div>
+        <form action="@Url.Action("Index", "Search")" id="searchform" method="get">
+            <input type="text" id="s" name="s" value="" />
+            <input type="submit" value="" id="searchsubmit" onclick="window.location.href = '/Search/' + $('#s').val(); return false;" />
+        </form>
+    </div>
+    <div class="a1">
+        <div class="a1_1">
+            <a href="#" target="_blank">
+                <img src="@Url.Content("~/Content/themes/BlueSpace/images/xb_001.png")" /></a>
+        </div>
+        <div class="a1_1">
+            <a href="#" target="_blank">
+                <img src="@Url.Content("~/Content/themes/BlueSpace/images/xb_002.png")" /></a>
+        </div>
+        <div class="a1_1">
+            <a href="#" target="_blank">
+                <img src="@Url.Content("~/Content/themes/BlueSpace/images/xb_003.png")" /></a>
+        </div>
+    </div>
+    <div class="a2">
+        <a href="@Url.Action("Index", "Home")">
+            <img src="@Url.Content("~/Content/themes/BlueSpace/images/xct-001.jpg")" /></a>
+    </div>
+</div>

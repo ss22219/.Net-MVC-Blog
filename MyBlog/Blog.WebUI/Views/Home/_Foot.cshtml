@@ -1,0 +1,31 @@
+﻿<div id="footer">
+    <div class="footer2">
+        <div class="f1">
+            <script type="text/javascript" src="@Url.Content("~/Content/themes/BlueSpace/js/scrolltop.js")"></script>
+            <div id="goTopBtn">
+                <a>
+                    <img src="@Url.Content("~/Content/themes/BlueSpace/images/top.jpg")" /></a>
+            </div>
+            <script type="text/javascript">goTopEx();</script>
+        </div>
+        <div class="f2">
+            <img src="@Url.Content("~/Content/themes/BlueSpace/images/logo2.jpg")" />
+        </div>
+        <div class="f3">Copyrigth &copy; 2013 @ViewBag.BlogTitle 版权所有</div>
+    </div>
+</div>
+<script type="text/javascript">
+    var IO = document.getElementById('float_zzjs'), Y = IO, H = 0, IE6;
+    IE6 = window.ActiveXObject && !window.XMLHttpRequest;
+    while (Y) { H += Y.offsetTop; Y = Y.offsetParent };
+    if (IE6)
+        IO.style.cssText = "position:absolute;top:expression(this.fix?(document" + ".documentElement.scrollTop-(this.javascript||" + H + ")):0)";
+    window.onscroll = function () {
+        var d = document, s = Math.max(d.documentElement.scrollTop, document.body.scrollTop);
+        if (s > H && IO.fix || s <= H && !IO.fix) return;
+        if (!IE6) IO.style.position = IO.fix ? "" : "fixed";
+        if (!IE6) IO.style.top = IO.fix ? "" : "0px";
+        IO.fix = !IO.fix;
+    };
+    try { document.execCommand("BackgroundImageCache", false, true) } catch (e) { };
+</script>

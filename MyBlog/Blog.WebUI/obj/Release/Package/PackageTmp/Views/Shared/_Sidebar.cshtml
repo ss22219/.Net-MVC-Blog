@@ -1,0 +1,99 @@
+﻿@model Blog.WebUI.Models.SidebarModel
+@using Blog.WebUI.Models
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/BlueSpace/css/sidebar.css")" type="text/css" />
+<div id="sidebar">
+    <div id="search-2" class="widget widget_search">
+        @using (Html.BeginForm("Index", "Search", FormMethod.Get, new { id = "searchform2" }))
+        {
+            <div>
+                <label for="s" class="screen-reader-text"></label>
+                <input type="text" id="s" name="s" value="" />
+                <input type="submit" value="搜索" id="searchsubmit" onclick="window.location.href = '/Search/' + $('#searchform2 #s').val(); return false;" />
+            </div>
+        }
+    </div>
+    <div id="recent-posts-2" class="widget widget_recent_entries">
+        <h2>近期文章</h2>
+        <ul>
+            @foreach (var item in Model.LastBlog)
+            {
+                <li>
+                    @Html.ActionLink(item.Title, "Index", "Article", new { id = item.ArticleId }, null)
+                </li>
+            }
+        </ul>
+    </div>
+    <div id="recent-comments-2" class="widget widget_recent_comments">
+        <h2>近期评论</h2>
+        <ul id="recentcomments">
+            @foreach (var item in Model.LastComment)
+            {
+                <li class="recentcomments">@item.Author 发表在《<a href="@Url.Action("Index", "Article", new { id = item.Article.ArticleId })-@item.CommentId#comment-@item.CommentId" title="@item.Article.Title">@item.Article.Title</a>》</li>
+            }
+        </ul>
+    </div>
+    <div id="archives-2" class="widget widget_archive">
+        <h2>文章归档</h2>
+        <ul>
+            @foreach (var key in Model.MonthCategory.Keys)
+            {
+                <li>
+                    @Html.ActionLink(Model.MonthCategory[key], "Month", "Category", new { id = key }, null)
+                </li>
+            }
+        </ul>
+    </div>
+    <div id="categories-2" class="widget widget_categories">
+        <h2>分类目录</h2>
+        <ul>
+            @foreach (var category in Model.Categorys.Where(c => c.Type == Blog.Domain.CategoryType.Category && c.Parent == null))
+            {
+                <li class="cat-item cat-item-@category.CategoryId">@Html.ActionLink(category.Name, "Category", "Category", new { id = category.CategoryId }, null)</li>
+            }
+        </ul>
+    </div>
+    <div id="meta-2" class="widget widget_meta">
+        <h2>功能</h2>
+        <ul>
+            @if (!ViewBag.IsLogin)
+            {
+                if (ViewBag.AllRegister == "1")
+                {
+                <li>@Html.ActionLink("注册", "Register", "Member")</li>
+                }
+                <li>@Html.ActionLink("登陆", "Login", "Member", new { ReturnUrl = Request.Url }, null)</li>
+            }
+            else
+            {
+                if (ViewBag.IsAdmin)
+                {
+                <li>@Html.ActionLink("管理", "Index", "Admin")</li>
+                }
+                else
+                {
+                <li>@Html.ActionLink("个人资料", "Info", "User", new { area = "" })</li>
+                }
+                <li>@Html.ActionLink("登出", "LogOut", "Member")</li>
+            }
+        </ul>
+    </div>
+    <!----评论----->
+    <div class="pl_1">
+        <h2>最新评论</h2>
+        <ul>
+            @foreach (var comment in Model.LastComment)
+            {
+                <li>
+                    <div class='clly_1'>
+                        <img alt='' src='@Html.Picture(Url, comment.User)' class='avatar avatar-31 photo avatar-default' height='31' width='31' />
+                    </div>
+                    <div class='clly_2'>@(comment.User == null ? comment.Author : comment.User.NiceName)说道：</div>
+                    <div class='clly_3'><a href="@Url.Action("Index", "Article", new { id = comment.Article.ArticleId })-@comment.CommentId#comment-@comment.CommentId" title="@comment.Article.Title 上的评论">@Html.SubString(comment.Content, 15, "")</a></div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

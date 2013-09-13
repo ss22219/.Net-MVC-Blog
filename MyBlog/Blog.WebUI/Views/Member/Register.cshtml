@@ -1,0 +1,38 @@
+﻿@model Blog.WebUI.Models.RegisterModel
+@{
+    Layout = "~/Views/Member/_MemberLayout.cshtml";
+    ViewBag.Title = "注册用户";
+}
+
+@using (Html.BeginForm("Register", "Member", FormMethod.Post, new { id = "registerform", style = "position: static; left: 0px;" }))
+{
+
+    <p>
+        <label for="user_login">
+            用户名<br>
+            <input type="text" name="UserName" id="user_login" class="input" value="" size="20"></label>
+    </p>
+    <p>
+        <label for="user_email">
+            电子邮件<br>
+            <input type="text" name="Email" id="user_email" class="input" value="admin" size="25"></label>
+    </p>
+
+    <p id="pass1-p">
+        <label id="pass1-label" for="pass1">
+            *密码<br>
+            <input type="password" autocomplete="off" name="Password" id="pass1"></label>
+    </p>
+    <p id="pass2-p">
+        <label id="pass2-label" for="pass2">
+            *确认密码<br>
+            <input type="password" autocomplete="off" name="RePassword" id="pass2"></label>
+    </p>
+    <div id="pass-strength-result">密码不能为空</div>
+    <p id="pass_strength_msg">您的密码长度必须超过6个字符。为了使您的密码更加安全，请使用大写、小写、数字和后续的符号!@Html.Raw("@")#$%^&amp;*()</p>
+    <p id="reg_passmail">密码将通过电子邮件发送给您。</p>
+    <br class="clear" />
+    <p class="submit">
+        <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="注册">
+    </p>
+}
