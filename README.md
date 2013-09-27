@@ -9,4 +9,4 @@ Install
 
 Import blog.sql to Mysql
 
-Edit hibernate.cfg.xml ConnectionString node
+Edit MyBlog/WebUI/hibernate.cfg.xml ConnectionString node
