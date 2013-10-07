@@ -1,7 +1,7 @@
 Blog
 ====
 
-This solution is my first asp.net mvc application
+This solution is develop on Visul Studio 2012
 
 
 Install
