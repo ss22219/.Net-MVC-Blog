@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 表的结构 `article`
+-- 表的结构 `Article`
 --
 
-CREATE TABLE IF NOT EXISTS `article` (
+CREATE TABLE IF NOT EXISTS `Article` (
   `ArticleId` int(11) NOT NULL AUTO_INCREMENT,
   `Title` varchar(255) DEFAULT NULL,
   `Content` varchar(255) DEFAULT NULL,
@@ -42,19 +42,19 @@ CREATE TABLE IF NOT EXISTS `article` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=UTF8 AUTO_INCREMENT=3 ;
 
 --
--- 转存表中的数据 `article`
+-- 转存表中的数据 `Article`
 --
 
-INSERT INTO `article` (`ArticleId`, `Title`, `Content`, `CreateDate`, `ModifyDate`, `CommentCount`, `Browse`, `Type`, `Status`, `UserId`) VALUES
+INSERT INTO `Article` (`ArticleId`, `Title`, `Content`, `CreateDate`, `ModifyDate`, `CommentCount`, `Browse`, `Type`, `Status`, `UserId`) VALUES
 (2, '???', '???', '2013-08-18 00:00:00', '2013-08-18 00:00:00', 1, 1, 0, 1, NULL);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `articleextend`
+-- 表的结构 `ArticleExtend`
 --
 
-CREATE TABLE IF NOT EXISTS `articleextend` (
+CREATE TABLE IF NOT EXISTS `ArticleExtend` (
   `ArticleExtendId` int(11) NOT NULL AUTO_INCREMENT,
   `ExtendKey` varchar(255) DEFAULT NULL,
   `ExtendValue` varchar(255) DEFAULT NULL,
@@ -66,10 +66,10 @@ CREATE TABLE IF NOT EXISTS `articleextend` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `attach`
+-- 表的结构 `Attach`
 --
 
-CREATE TABLE IF NOT EXISTS `attach` (
+CREATE TABLE IF NOT EXISTS `Attach` (
   `AttachId` int(11) NOT NULL AUTO_INCREMENT,
   `ArticleId` int(11) DEFAULT NULL,
   `Title` varchar(255) DEFAULT NULL,
@@ -82,10 +82,10 @@ CREATE TABLE IF NOT EXISTS `attach` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `category`
+-- 表的结构 `Category`
 --
 
-CREATE TABLE IF NOT EXISTS `category` (
+CREATE TABLE IF NOT EXISTS `Category` (
   `CategoryId` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(255) DEFAULT NULL,
   `Type` int(11) DEFAULT NULL,
@@ -98,14 +98,14 @@ CREATE TABLE IF NOT EXISTS `category` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `categoryrelationship`
+-- 表的结构 `CategoryRelationship`
 --
 
-CREATE TABLE IF NOT EXISTS `categoryrelationship` (
-  `RelationShipId` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `CategoryRelationship` (
+  `RelationshipId` int(11) NOT NULL AUTO_INCREMENT,
   `CategoryId` int(11) DEFAULT NULL,
   `ArticleId` int(11) DEFAULT NULL,
-  PRIMARY KEY (`RelationShipId`),
+  PRIMARY KEY (`RelationshipId`),
   KEY `CategoryId` (`CategoryId`),
   KEY `ArticleId` (`ArticleId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8 AUTO_INCREMENT=1 ;
@@ -113,10 +113,10 @@ CREATE TABLE IF NOT EXISTS `categoryrelationship` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `comment`
+-- 表的结构 `Comment`
 --
 
-CREATE TABLE IF NOT EXISTS `comment` (
+CREATE TABLE IF NOT EXISTS `Comment` (
   `CommentId` int(11) NOT NULL AUTO_INCREMENT,
   `Content` varchar(255) DEFAULT NULL,
   `CreateDate` datetime DEFAULT NULL,
@@ -136,10 +136,10 @@ CREATE TABLE IF NOT EXISTS `comment` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `setting`
+-- 表的结构 `Setting`
 --
 
-CREATE TABLE IF NOT EXISTS `setting` (
+CREATE TABLE IF NOT EXISTS `Setting` (
   `SettingId` int(11) NOT NULL AUTO_INCREMENT,
   `SettingKey` varchar(255) DEFAULT NULL,
   `SettingValue` varchar(255) DEFAULT NULL,
@@ -147,10 +147,10 @@ CREATE TABLE IF NOT EXISTS `setting` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=UTF8 AUTO_INCREMENT=35 ;
 
 --
--- 转存表中的数据 `setting`
+-- 转存表中的数据 `Setting`
 --
 
-INSERT INTO `setting` (`SettingId`, `SettingKey`, `SettingValue`) VALUES
+INSERT INTO `Setting` (`SettingId`, `SettingKey`, `SettingValue`) VALUES
 (18, 'BlogTitle', '????'),
 (19, 'AllRegister', '1'),
 (20, 'DefaultRole', '1'),
@@ -172,10 +172,10 @@ INSERT INTO `setting` (`SettingId`, `SettingKey`, `SettingValue`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `user`
+-- 表的结构 `User`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE IF NOT EXISTS `User` (
   `UserId` int(11) NOT NULL AUTO_INCREMENT,
   `UserName` varchar(255) DEFAULT NULL,
   `Password` varchar(255) DEFAULT NULL,
@@ -188,19 +188,19 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=UTF8 AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `user`
+-- 转存表中的数据 `User`
 --
 
-INSERT INTO `user` (`UserId`, `UserName`, `Password`, `NiceName`, `Email`, `RegisterDate`, `Status`, `Role`) VALUES
+INSERT INTO `User` (`UserId`, `UserName`, `Password`, `NiceName`, `Email`, `RegisterDate`, `Status`, `Role`) VALUES
 (1, 'ss22219', '303384755', '??', 'ss22219@qq.com', '2013-08-18 00:00:00', 1, 2);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `userextend`
+-- 表的结构 `UserExtend`
 --
 
-CREATE TABLE IF NOT EXISTS `userextend` (
+CREATE TABLE IF NOT EXISTS `UserExtend` (
   `UserExtendId` int(11) NOT NULL AUTO_INCREMENT,
   `UserId` int(11) DEFAULT NULL,
   `ExtendKey` varchar(255) DEFAULT NULL,
@@ -210,10 +210,10 @@ CREATE TABLE IF NOT EXISTS `userextend` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=UTF8 AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `userextend`
+-- 转存表中的数据 `UserExtend`
 --
 
-INSERT INTO `userextend` (`UserExtendId`, `UserId`, `ExtendKey`, `ExtendValue`) VALUES
+INSERT INTO `UserExtend` (`UserExtendId`, `UserId`, `ExtendKey`, `ExtendValue`) VALUES
 (1, 1, 'Cover', 'http://img.baidu.com/img/iknow/avarta/66/r6s1g1.gif');
 
 --
@@ -221,50 +221,50 @@ INSERT INTO `userextend` (`UserExtendId`, `UserId`, `ExtendKey`, `ExtendValue`) 
 --
 
 --
--- 限制表 `article`
+-- 限制表 `Article`
 --
-ALTER TABLE `article`
-  ADD CONSTRAINT `FK873F04FBE7840C6E` FOREIGN KEY (`UserId`) REFERENCES `user` (`UserId`);
+ALTER TABLE `Article`
+  ADD CONSTRAINT `FK873F04FBE7840C6E` FOREIGN KEY (`UserId`) REFERENCES `User` (`UserId`);
 
 --
--- 限制表 `articleextend`
+-- 限制表 `ArticleExtend`
 --
-ALTER TABLE `articleextend`
-  ADD CONSTRAINT `FK705E406EB4128634` FOREIGN KEY (`ArticleId`) REFERENCES `article` (`ArticleId`);
+ALTER TABLE `ArticleExtend`
+  ADD CONSTRAINT `FK705E406EB4128634` FOREIGN KEY (`ArticleId`) REFERENCES `Article` (`ArticleId`);
 
 --
--- 限制表 `attach`
+-- 限制表 `Attach`
 --
-ALTER TABLE `attach`
-  ADD CONSTRAINT `FK33C9C03EB4128634` FOREIGN KEY (`ArticleId`) REFERENCES `article` (`ArticleId`);
+ALTER TABLE `Attach`
+  ADD CONSTRAINT `FK33C9C03EB4128634` FOREIGN KEY (`ArticleId`) REFERENCES `Article` (`ArticleId`);
 
 --
--- 限制表 `category`
+-- 限制表 `Category`
 --
-ALTER TABLE `category`
-  ADD CONSTRAINT `FK6482F241E5F0AE1` FOREIGN KEY (`ParentId`) REFERENCES `category` (`CategoryId`);
+ALTER TABLE `Category`
+  ADD CONSTRAINT `FK6482F241E5F0AE1` FOREIGN KEY (`ParentId`) REFERENCES `Category` (`CategoryId`);
 
 --
--- 限制表 `categoryrelationship`
+-- 限制表 `CategoryRelationship`
 --
-ALTER TABLE `categoryrelationship`
-  ADD CONSTRAINT `FK24112662B4128634` FOREIGN KEY (`ArticleId`) REFERENCES `article` (`ArticleId`),
-  ADD CONSTRAINT `FK24112662A6C14A26` FOREIGN KEY (`CategoryId`) REFERENCES `category` (`CategoryId`);
+ALTER TABLE `CategoryRelationship`
+  ADD CONSTRAINT `FK24112662B4128634` FOREIGN KEY (`ArticleId`) REFERENCES `Article` (`ArticleId`),
+  ADD CONSTRAINT `FK24112662A6C14A26` FOREIGN KEY (`CategoryId`) REFERENCES `Category` (`CategoryId`);
 
 --
--- 限制表 `comment`
+-- 限制表 `Comment`
 --
-ALTER TABLE `comment`
-  ADD CONSTRAINT `FKE2466703F002AFC9` FOREIGN KEY (`ParentId`) REFERENCES `comment` (`CommentId`),
-  ADD CONSTRAINT `FKE2466703B4128634` FOREIGN KEY (`ArticleId`) REFERENCES `article` (`ArticleId`),
-  ADD CONSTRAINT `FKE2466703E7840C6E` FOREIGN KEY (`UserId`) REFERENCES `user` (`UserId`);
+ALTER TABLE `Comment`
+  ADD CONSTRAINT `FKE2466703F002AFC9` FOREIGN KEY (`ParentId`) REFERENCES `Comment` (`CommentId`),
+  ADD CONSTRAINT `FKE2466703B4128634` FOREIGN KEY (`ArticleId`) REFERENCES `Article` (`ArticleId`),
+  ADD CONSTRAINT `FKE2466703E7840C6E` FOREIGN KEY (`UserId`) REFERENCES `User` (`UserId`);
 
 --
--- 限制表 `userextend`
+-- 限制表 `UserExtend`
 --
-ALTER TABLE `userextend`
-  ADD CONSTRAINT `FK41993EB172A82051` FOREIGN KEY (`UserExtendId`) REFERENCES `user` (`UserId`),
-  ADD CONSTRAINT `FK41993EB1E7840C6E` FOREIGN KEY (`UserId`) REFERENCES `user` (`UserId`);
+ALTER TABLE `UserExtend`
+  ADD CONSTRAINT `FK41993EB172A82051` FOREIGN KEY (`UserExtendId`) REFERENCES `User` (`UserId`),
+  ADD CONSTRAINT `FK41993EB1E7840C6E` FOREIGN KEY (`UserId`) REFERENCES `User` (`UserId`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
