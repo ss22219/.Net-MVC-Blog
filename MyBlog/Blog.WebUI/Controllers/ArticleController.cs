@@ -11,13 +11,11 @@ namespace Blog.WebUI.Controllers
     public class ArticleController : Controller
     {
         private IArticleService _articleService;
-        private IRoleService _roleService;
         private ISessionManager _sessionManager;
         private ICommentService _commentService;
-        public ArticleController(IArticleService articleService, IRoleService roleService, ISessionManager sessionManager, ICommentService commentService)
+        public ArticleController(IArticleService articleService, ISessionManager sessionManager, ICommentService commentService)
         {
             _articleService = articleService;
-            _roleService = roleService;
             _sessionManager = sessionManager;
             _commentService = commentService;
         }

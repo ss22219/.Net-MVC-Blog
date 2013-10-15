@@ -3,7 +3,7 @@
   <session-factory>
     <property name="connection.driver_class">NHibernate.Driver.MySqlDataDriver</property>
     <property name="connection.connection_string">
-      Database=blog;Data Source=127.0.0.1;User Id=root;Password=
+      Database=blog;Data Source=127.0.0.1;User Id=root;Password=;Charset=utf8
     </property>
     <property name="dialect">NHibernate.Dialect.MySQLDialect</property>
     <property name="hbm2ddl.auto">update</property>

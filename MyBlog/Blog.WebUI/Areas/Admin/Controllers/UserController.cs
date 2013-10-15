@@ -56,7 +56,7 @@ namespace Blog.WebUI.Areas.Admin.Controllers
             pageInfo.PageSize = model.PageSize.Value;
 
             model.PageIndex = model.PageIndex > pageInfo.TotalPage ? pageInfo.TotalPage : model.PageIndex;
-
+			model.PageIndex = model.PageIndex <= 0 ? 1 : model.PageIndex ;
             IList<User> list = _userService.Find(query => BulidQuery(query, model).OrderByDescending(c => c.RegisterDate).Skip((model.PageIndex - 1) * model.PageSize.Value).Take(model.PageSize.Value));
             pageInfo.PageItems = list;
             model.PageInfo = pageInfo;

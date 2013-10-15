@@ -70,13 +70,13 @@
             {
                 if (ViewBag.IsAdmin)
                 {
-                <li>@Html.ActionLink("管理", "Index", "Admin")</li>
+                <li><a href="/Admin">管理</a></li>
                 }
                 else
                 {
-                <li>@Html.ActionLink("个人资料", "Info", "User", new { area = "" })</li>
+                <li><a href="/Admin/User/Info">个人资料</a></li>
                 }
-                <li>@Html.ActionLink("登出", "LogOut", "Member")</li>
+                <li><a href="/Member/LogOut">登出</a></li>
             }
         </ul>
     </div>

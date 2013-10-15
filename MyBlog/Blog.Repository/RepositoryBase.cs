@@ -39,6 +39,7 @@ namespace Blog.Repository
         public void Update(T entity)
         {
             session.Merge(entity);
+			session.Flush ();
         }
 
 

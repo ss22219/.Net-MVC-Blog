@@ -44,11 +44,7 @@ namespace Blog.WebUI
             builder.Register<ISession>(
                 c => c.Resolve<ISessionFactory>().OpenSession()).OnRelease(s => s.Flush()).InstancePerHttpRequest();
 
-            //注册缓存依赖到容器，生命周期为Application
-            builder.Register<CacheDependency>(c => new SqlCacheDependency("Default", "Setting"));
-            builder.Register<CacheDependency>(c => new SqlCacheDependency("Default", "Article")).Named<CacheDependency>("Article").SingleInstance();
-            builder.Register<CacheDependency>(c => new SqlCacheDependency("Default", "Comment")).Named<CacheDependency>("Comment").SingleInstance();
-
+            
             ///注册各业务实现类
             builder.Register<ISessionManager>(c => new SessionManager()).SingleInstance();
 

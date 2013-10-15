@@ -14,13 +14,11 @@ namespace Blog.WebUI.Areas.Admin.Controllers
     {
         private ICommentService _commentService;
         private ISettingService _settingService;
-        private IArticleService _articleService;
 
         public CommentController(IArticleService articleService, ICommentService commentService, ISettingService settingService)
         {
             _commentService = commentService;
             _settingService = settingService;
-            _articleService = articleService;
         }
         [AdminAuthorize]
         public ActionResult Index(CommentSearchModel model, string message = null, string method = null, int[] commentIds = null)
@@ -52,8 +50,9 @@ namespace Blog.WebUI.Areas.Admin.Controllers
             pageInfo.PageSize = model.PageSize.Value;
 
             model.PageIndex = model.PageIndex > pageInfo.TotalPage ? pageInfo.TotalPage : model.PageIndex;
-
-            IList<Comment> list = _commentService.Find(query => BulidCommentQuery(query, model).OrderByDescending(c => c.CreateDate).Skip((model.PageIndex - 1) * model.PageSize.Value).Take(model.PageSize.Value));
+			model.PageIndex = model.PageIndex <= 0 ? 1 : model.PageIndex;
+            
+			IList<Comment> list = _commentService.Find(query => BulidCommentQuery(query, model).OrderByDescending(c => c.CreateDate).Skip((model.PageIndex - 1) * model.PageSize.Value).Take(model.PageSize.Value));
             pageInfo.PageItems = list;
             model.PageInfo = pageInfo;
 

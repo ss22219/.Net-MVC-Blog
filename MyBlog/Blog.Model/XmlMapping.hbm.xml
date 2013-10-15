@@ -100,8 +100,8 @@
     <property name="AuthorIP" column="AuthorIP" type="string"  />
     <property name="Status" column="Status" type="int"  />
 
-    <many-to-one name="User" class="Blog.Model.User, Blog.Model" column="UserId" not-null="false" lazy="false"/>
-    <many-to-one class="Blog.Model.Article, Blog.Model" column="ArticleId" name="Article"/>
+    <many-to-one name="User"  cascade="none" class="Blog.Model.User, Blog.Model" column="UserId" not-null="false" lazy="false"/>
+    <many-to-one class="Blog.Model.Article, Blog.Model" column="ArticleId" name="Article" cascade="none"/>
 
     <many-to-one name="Parent" class="Blog.Model.Comment, Blog.Model" column="ParentId" not-null="false" not-found="ignore" cascade="none"/>
     <bag name="Children" cascade="all" table="Comment" lazy="true">
@@ -143,10 +143,10 @@
       <one-to-many class="Blog.Model.Article, Blog.Model"/>
     </bag>
 
-    <map lazy="false" table="UserExtend" name="Extends">
-      <key column="UserId"/>
-      <map-key column="ExtendKey" type="String"/>
-      <element column="ExtendValue" type="String"/>
+    <map name="Extends" cascade="all" lazy="false" table="UserExtend">
+      <key column="UserId"></key>
+      <map-key column="ExtendKey" type="string"/>
+      <element column="ExtendValue" type="string"/>
     </map>
 
   </class>

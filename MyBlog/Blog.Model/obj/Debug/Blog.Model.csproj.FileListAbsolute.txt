@@ -8,3 +8,7 @@ C:\Users\Administrator\Desktop\demo\MyBlog\Blog.Model\bin\Debug\Blog.Model.pdb
 C:\Users\Administrator\Desktop\demo\MyBlog\Blog.Model\obj\Debug\Blog.Model.dll
 C:\Users\Administrator\Desktop\demo\MyBlog\Blog.Model\obj\Debug\Blog.Model.pdb
 C:\Users\Administrator\Desktop\demo\MyBlog\Blog.Model\obj\Debug\Blog.Model.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\MyBlog\Blog.Model\bin\Debug\Blog.Model.dll
+C:\Users\Administrator\Desktop\MyBlog\Blog.Model\bin\Debug\Blog.Model.pdb
+C:\Users\Administrator\Desktop\MyBlog\Blog.Model\obj\Debug\Blog.Model.dll
+C:\Users\Administrator\Desktop\MyBlog\Blog.Model\obj\Debug\Blog.Model.pdb

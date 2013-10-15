@@ -84,7 +84,7 @@ namespace Blog.Domain
             );
 
             pageIndex = pageIndex > page.TotalPage ? page.TotalPage : pageIndex;
-
+			pageIndex = pageIndex <= 0 ? 1 : pageIndex;
             page.PageItems = _commentRepository.Find(query => query.Where(
                 c => c.Article.ArticleId == articleId && (c.Parent.CommentId == 0 || c.Parent == null) && ((c.Status == CommentStatus.Open) || (c.User.UserId == userId && c.Status != CommentStatus.Delete))
                 ).OrderBy(c => c.CreateDate).Skip((pageIndex - 1) * pageSize).Take(pageSize)

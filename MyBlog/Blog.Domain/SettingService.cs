@@ -33,7 +33,7 @@ namespace Blog.Domain
                 IList<Setting> list = _settingRepository.GetAll();
                 foreach (var setting in list)
                 {
-                    if (!string.IsNullOrEmpty(setting.SettingKey))
+                    if (setting != null && !string.IsNullOrEmpty(setting.SettingKey))
                         _settings[setting.SettingKey] = setting.SettingValue;
                 }
             }
@@ -68,6 +68,7 @@ namespace Blog.Domain
             foreach (var setting in settings)
             {
                 setting.SettingValue = value;
+                _settingRepository.Update(setting);
             }
             _settings[key] = value;
         }
