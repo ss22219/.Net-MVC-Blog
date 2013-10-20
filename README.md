@@ -1,7 +1,7 @@
 ﻿博客
 ====
 
-这个程序开发于 Visul Studio 2012
+这个程序开发于 Visual Studio 2012
 
 
 安装
@@ -21,7 +21,7 @@ Java 版本
 Blog
 ====
 
-This solution is develop on Visul Studio 2012
+This solution is develop on Visual Studio 2012
 
 
 Install
