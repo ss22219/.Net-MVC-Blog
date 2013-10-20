@@ -24,11 +24,7 @@ namespace Blog.WebUI.Models
 
         public static MvcHtmlString Calendar(this HtmlHelper Html, int weekStart)
         {
-            MvcHtmlString str = (MvcHtmlString)HttpRuntime.Cache.Get("Article_Calendar");
-            if (str != null)
-            {
-                return str;
-            }
+            MvcHtmlString str = null;
             ///中国一周中的天
             IList<string> cDays = new List<string>(){
                 "日",
@@ -124,7 +120,6 @@ namespace Blog.WebUI.Models
             sb.Append("</tr></tbody></table>");
 
             str = MvcHtmlString.Create(sb.ToString());
-            HttpRuntime.Cache.Insert("Article_Calendar", str, DependencyResolver.Current.GetService<CacheDependency>(), DateTime.UtcNow.AddHours(1), TimeSpan.Zero);
             return str;
         }
     }

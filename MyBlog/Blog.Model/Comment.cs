@@ -6,6 +6,7 @@ namespace Blog.Model
     /// <summary>
     /// 评论类
     /// </summary>
+    [Serializable]
     public class Comment
     {
         /// <summary>

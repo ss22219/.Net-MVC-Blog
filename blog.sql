@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `Article`;
 CREATE TABLE `Article` (
   `ArticleId` int(11) NOT NULL AUTO_INCREMENT,
   `Title` varchar(255) DEFAULT NULL,
-  `Content` varchar(255) DEFAULT NULL,
+  `Content` text DEFAULT NULL,
   `CreateDate` datetime DEFAULT NULL,
   `ModifyDate` datetime DEFAULT NULL,
   `CommentCount` int(11) DEFAULT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE `Article` (
   PRIMARY KEY (`ArticleId`),
   KEY `UserId` (`UserId`),
   CONSTRAINT `FK379164D66426CB5F` FOREIGN KEY (`UserId`) REFERENCES `User` (`UserId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,7 +176,7 @@ DROP TABLE IF EXISTS `Comment`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Comment` (
   `CommentId` int(11) NOT NULL AUTO_INCREMENT,
-  `Content` varchar(255) DEFAULT NULL,
+  `Content` text DEFAULT NULL,
   `CreateDate` datetime DEFAULT NULL,
   `Author` varchar(255) DEFAULT NULL,
   `AuthorMail` varchar(255) DEFAULT NULL,

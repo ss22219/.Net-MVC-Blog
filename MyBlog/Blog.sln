@@ -32,10 +32,13 @@ Global
 		{B6101DFB-4B67-4131-9F4D-F28A2866227C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6101DFB-4B67-4131-9F4D-F28A2866227C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Blog.WebUI\Blog.WebUI.csproj
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Blog.WebUI\Blog.WebUI.csproj
 	EndGlobalSection
 EndGlobal

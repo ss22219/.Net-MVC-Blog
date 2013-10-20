@@ -5,6 +5,7 @@ namespace Blog.Model
 	/// <summary>
 	/// 用户类
 	/// </summary>
+    [Serializable]
 	public class User
 	{
 		/// <summary>

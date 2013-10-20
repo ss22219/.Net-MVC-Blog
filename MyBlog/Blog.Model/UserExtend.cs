@@ -5,6 +5,7 @@ namespace Blog.Model
 	/// <summary>
 	/// 用户信息扩展类
 	/// </summary>
+    [Serializable]
 	public class UserExtend
 	{
 		/// <summary>

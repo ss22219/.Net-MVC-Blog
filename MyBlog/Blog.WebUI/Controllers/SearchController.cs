@@ -13,7 +13,7 @@ namespace Blog.WebUI.Controllers
         {
             _articleService = articleService;
         }
-
+        [ValidateInput(false)]
         public ActionResult Index(string id, int page = 1)
         {
             page = page > 0 ? page : 1;

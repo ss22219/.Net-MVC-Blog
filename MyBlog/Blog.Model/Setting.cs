@@ -4,7 +4,8 @@ namespace Blog.Model
 {
 	/// <summary>
 	/// 设置类
-	/// </summary>
+    /// </summary>
+    [Serializable]
 	public class Setting
 	{
 		/// <summary>

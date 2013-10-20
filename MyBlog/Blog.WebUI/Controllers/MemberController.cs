@@ -86,6 +86,16 @@ namespace Blog.WebUI.Controllers
 
             if (user != null)
             {
+                if (model.RememberMe == true)
+                {
+                    Response.SetCookie(new HttpCookie("UserName", model.UserName));
+                    Response.SetCookie(new HttpCookie("Password", model.Password));
+                }
+                else
+                {
+                    Response.SetCookie(new HttpCookie("UserName", string.Empty));
+                    Response.SetCookie(new HttpCookie("Password", string.Empty));
+                }
                 System.Web.Security.FormsAuthentication.SetAuthCookie(user.UserName, false);
                 if (string.IsNullOrEmpty(model.ReturnUrl))
                 {

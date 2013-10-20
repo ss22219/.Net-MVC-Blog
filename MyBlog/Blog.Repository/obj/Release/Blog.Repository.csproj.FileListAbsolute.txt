@@ -11,3 +11,17 @@ C:\Users\Administrator\Desktop\demo\MyBlog\Blog.Repository\bin\Release\NHibernat
 C:\Users\Administrator\Desktop\demo\MyBlog\Blog.Repository\obj\Release\Blog.Repository.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\demo\MyBlog\Blog.Repository\obj\Release\Blog.Repository.dll
 C:\Users\Administrator\Desktop\demo\MyBlog\Blog.Repository\obj\Release\Blog.Repository.pdb
+C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\bin\Release\Blog.Repository.dll
+C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\bin\Release\Blog.Repository.pdb
+C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\bin\Release\Blog.Model.dll
+C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\bin\Release\Iesi.Collections.dll
+C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\bin\Release\MySql.Data.dll
+C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\bin\Release\NHibernate.dll
+C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\bin\Release\NHibernate.Linq.dll
+C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\bin\Release\Blog.Model.pdb
+C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\bin\Release\Iesi.Collections.xml
+C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\bin\Release\NHibernate.xml
+C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\bin\Release\NHibernate.Linq.xml
+C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\obj\Release\Blog.Repository.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\obj\Release\Blog.Repository.dll
+C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\obj\Release\Blog.Repository.pdb

@@ -45,20 +45,12 @@ namespace Blog.Domain
 
         public IDictionary<string, string> GetMonthCategory()
         {
-            IDictionary<string, string> cache = (IDictionary<string, string>)HttpRuntime.Cache.Get("Category_Month");
-            if (cache != null)
-            {
-                return cache;
-            }
-
             IList<string> months = _categoryRepository.GetMonthCategory();
             IDictionary<string, string> monthCategory = new Dictionary<string, string>();
             foreach (string month in months)
             {
                 monthCategory.Add(month, month.Insert(4, " 年") + "月");
             }
-
-            HttpRuntime.Cache.Insert("Category_Month", monthCategory, new SqlCacheDependency("Default", "Category"), DateTime.UtcNow.AddDays(1), TimeSpan.Zero);
             return monthCategory;
         }
 
@@ -81,7 +73,7 @@ namespace Blog.Domain
 
         public Model.Category FindTagByName(string name)
         {
-            IList<Category> categorys = _categorys.Where(c => c.Name == name).ToList();
+            IList<Category> categorys =  this.GetAllCategory().Where(c => c.Name == name).ToList();
 
             if (categorys.Count > 0)
             {
@@ -128,6 +120,7 @@ namespace Blog.Domain
             {
                 throw new DomainException("NoFind", "没有找到该分类！");
             }
+            _categorys = null;
             _categoryRepository.Update(category);
         }
 

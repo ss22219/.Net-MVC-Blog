@@ -5,6 +5,7 @@ namespace Blog.Model
 	/// <summary>
 	/// 文章类
 	/// </summary>
+    [Serializable]
 	public class Article
 	{
 		/// <summary>

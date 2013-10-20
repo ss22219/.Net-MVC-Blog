@@ -2,6 +2,7 @@
 using NHibernate;
 using Blog.Repository.Interface;
 using Blog.Model;
+using System.Collections.Generic;
 
 namespace Blog.Repository
 {
@@ -17,11 +18,20 @@ namespace Blog.Repository
             //string sql = "select SUBSTRING( CONVERT(varchar,CreateDate,112),0,7) from Article Group by SUBSTRING( CONVERT(varchar,CreateDate,112),0,7)";
             string sql = "SELECT LEFT( CreateDate, 7 ) AS lefttime FROM Article GROUP BY lefttime";
             var query = session.CreateSQLQuery(sql);
-            var list = query.List<string>();
-
-            for (int i = 0; i < list.Count; i++)
+            IList<string> list = new List<string>();
+            foreach (var obj in query.List())
             {
-                list[i] = list[i].Replace("-", string.Empty);
+                string str = null;
+                if (obj is string)
+                {
+                    str = (string)obj;
+                }
+                else
+                {
+                    str = System.Text.Encoding.Default.GetString((byte[])obj);
+                }
+                str = str.Replace("-", string.Empty);
+                list.Add(str);
             }
             return list;
         }

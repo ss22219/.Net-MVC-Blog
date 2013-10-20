@@ -99,7 +99,7 @@ namespace Blog.WebUI.Areas.Admin.Controllers
                 }
                 Category category = new Category() { Name = name, Type = CategoryType.Category, Parent = parent };
                 _categoryService.AddCategory(category);
-                Article article = _articleService.GetArticle(articleId);
+                Article article = articleId > 0 ? _articleService.GetArticle(articleId) : new Article();
                 MvcHtmlString categoryList = CategoryHelper.BulidArticleCategory(null, article);
                 return Json(new { success = true, data = categoryList.ToString(), data2 = CategoryHelper.BulidCategoryList(null).ToString() });
             }

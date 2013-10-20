@@ -3,7 +3,8 @@ namespace Blog.Model
 {
 	/// <summary>
 	/// 附件表
-	/// </summary>
+    /// </summary>
+    [Serializable]
 	public class Attach
 	{
 		/// <summary>

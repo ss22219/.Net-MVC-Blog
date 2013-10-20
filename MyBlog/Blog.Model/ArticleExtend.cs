@@ -4,7 +4,8 @@ namespace Blog.Model
 {
 	/// <summary>
 	/// 文章扩展类
-	/// </summary>
+    /// </summary>
+    [Serializable]
 	public class ArticleExtend
 	{
 		/// <summary>

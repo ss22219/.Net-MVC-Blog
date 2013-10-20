@@ -2,6 +2,7 @@
 @model Blog.Domain.PageInfo<Blog.Model.Article>
 @{
     Layout = "~/Views/Shared/_Content.cshtml";
+    ViewBag.Title = "搜索";
 }
 @if (Model.PageItems.Count == 0)
 {

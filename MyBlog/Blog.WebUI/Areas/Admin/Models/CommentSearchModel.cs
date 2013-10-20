@@ -15,7 +15,7 @@ namespace Blog.WebUI.Areas.Admin.Models
 
         public string Search { get; set; }
 
-        public int PageIndex { get { return pageIndex; } set { if (pageIndex > 0) { pageIndex = value; } } }
+        public int PageIndex { get { return pageIndex; } set { if (value > 0) { pageIndex = value; } } }
 
         public int? PageSize { get; set; }
 

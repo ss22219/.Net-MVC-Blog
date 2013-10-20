@@ -485,7 +485,7 @@
             }
         })
         $('#publish').click(function () {
-            var data = 'ArticleId=@Model.ArticleId&Title=' + encodeURI($('#title').val().trim()) + '&Content=' + escape(tinymce.editors[0].getContent())
+            var data = 'ArticleId=@Model.ArticleId&Title=' + encodeURI($('#title').val().trim()) + '&Content=' + escape(tinymce.editors[0].getContent().replace(/("|')[\.\/]+?Scripts/g, "$1/Scripts"))
             var categorys = ""
             var tags = ""
             $('.categorychecklist input[checked="checked"]').each(function (i, e) {

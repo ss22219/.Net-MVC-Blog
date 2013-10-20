@@ -4,7 +4,8 @@ namespace Blog.Model
 {
 	/// <summary>
 	/// 文章分类对应表
-	/// </summary>
+    /// </summary>
+    [Serializable]
 	public class CategoryRelationShip
 	{
 		/// <summary>

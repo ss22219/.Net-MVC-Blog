@@ -38,12 +38,7 @@ namespace Blog.Domain
         public IList<Model.Comment> GetLastComments()
         {
             //缓存加载
-            IList<Comment> comments = (IList<Comment>)HttpRuntime.Cache.Get("Comment_LastComment");
-
-            if (comments != null)
-            {
-                return comments;
-            }
+            IList<Comment> comments = null;
             int count = int.Parse(_settiongService.GetSetting("LastCommentCount"));
             comments = _commentRepository.Find(
                 query => query.Where(
@@ -53,7 +48,6 @@ namespace Blog.Domain
                 );
 
             //加入缓存
-            HttpRuntime.Cache.Insert("Comment_LastComment", comments, new SqlCacheDependency("Default", "Comment"), DateTime.UtcNow.AddMinutes(1), TimeSpan.Zero);
             return comments;
         }
 
@@ -66,12 +60,7 @@ namespace Blog.Domain
         public PageInfo<Comment> GetCommentsByArticleId(int articleId, int pageIndex)
         {
             //缓存加载
-            PageInfo<Comment> page = (PageInfo<Comment>)HttpRuntime.Cache.Get("Comment_ArticlePage" + articleId + "_" + pageIndex);
-
-            if (page != null)
-            {
-                return page;
-            }
+            PageInfo<Comment> page = null;
 
             page = new PageInfo<Comment>();
             int userId = _sessionManager.User == null ? 0 : _sessionManager.User.UserId;
@@ -92,9 +81,6 @@ namespace Blog.Domain
 
 
             page.PageIndex = pageIndex;
-
-            ///加入缓存
-            HttpRuntime.Cache.Insert("Comment_ArticlePage" + articleId + "_" + pageIndex, page, new SqlCacheDependency("Default", "Comment"), DateTime.UtcNow.AddMilliseconds(30), TimeSpan.Zero);
             return page;
         }
 
@@ -211,12 +197,7 @@ namespace Blog.Domain
         public int GetCommentPageIndex(int commentId)
         {
             //缓存开启
-            int? pageIndex = (int?)HttpRuntime.Cache.Get("Comment_PageIndex" + commentId);
-
-            if (pageIndex != null)
-            {
-                return pageIndex.Value;
-            }
+            int pageIndex = 0;
             Comment comment = _commentRepository.Get(commentId);
 
             while (comment.Parent != null)
@@ -234,8 +215,7 @@ namespace Blog.Domain
             pageIndex = (int)Math.Ceiling(count / (double)pageSize);
 
             //加入缓存
-            HttpRuntime.Cache.Insert("Comment_PageIndex" + commentId, pageIndex, new SqlCacheDependency("Default", "Comment"), DateTime.MaxValue, TimeSpan.FromMinutes(1));
-            return pageIndex.Value;
+            return pageIndex;
         }
 
         /// <summary>
