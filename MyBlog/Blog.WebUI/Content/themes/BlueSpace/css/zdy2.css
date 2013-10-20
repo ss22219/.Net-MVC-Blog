@@ -1,4 +1,5 @@
-/*-----页面-----*/
+﻿/*-----页面-----*/
+body{ min-width:996px }
 .g3{ width:100%; overflow:hidden; background-color:#f3f3f3; background-image:url(../images/bj-012.jpg); background-repeat:repeat-y;}
 .g3 .g3_1{ width:334px; overflow:hidden; background:url(../images/bj-011.jpg) top no-repeat; padding:50px 0 0 0; float:left; border-left:1px solid #f3f3f3; border-right:1px solid #f3f3f3; border-top:1px solid #f3f3f3;}
 /*--共用--*/
