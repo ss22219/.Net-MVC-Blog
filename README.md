@@ -9,7 +9,7 @@
 
 导入 blog.sql 到 MySql 数据库
 
-修改 MyBlog/WebUI/hibernate.cfg.xml 文件的连接字符串
+修改 MyBlog/WebUI/bin/hibernate.cfg.xml 文件的连接字符串
 
 上传 MyBlog/WebUI/ 里面的文件到你的网站根目录
 
@@ -31,7 +31,7 @@ Import blog.sql to Mysql
 
 Edit MyBlog/WebUI/hibernate.cfg.xml ConnectionString node
 
-Upload MyBlog/WebUI/ flies to you web root
+Upload MyBlog/WebUI/bin/ flies to you web site root
 
 
 Java version
