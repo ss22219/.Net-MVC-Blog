@@ -9,9 +9,9 @@
 
 导入 blog.sql 到 MySql 数据库
 
-修改 MyBlog/WebUI/bin/hibernate.cfg.xml 文件的连接字符串
+修改 MyBlog/Blog.WebUI/obj/Release/Package/PackageTmp/bin/hibernate.cfg.xml 文件的连接字符串
 
-上传 MyBlog/WebUI/ 里面的文件到你的网站根目录
+上传 MyBlog/Blog.WebUI/obj/Release/Package/PackageTmp 里面的文件到你的网站根目录
 
 Java 版本
 ====
@@ -29,9 +29,9 @@ Install
 
 Import blog.sql to Mysql
 
-Edit MyBlog/WebUI/hibernate.cfg.xml ConnectionString node
+Edit MyBlog/Blog.WebUI/obj/Release/Package/PackageTmp/bin/hibernate.cfg.xml ConnectionString node
 
-Upload MyBlog/WebUI/bin/ flies to you web site root
+Upload MyBlog/Blog.WebUI/obj/Release/Package/PackageTmp flies to you web site root
 
 
 Java version
