@@ -176,6 +176,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
     <Content Include="Content\Admin\css\color-picker-rtl.css" />
     <Content Include="Content\Admin\css\color-picker-rtl.min.css" />
     <Content Include="Content\Admin\css\color-picker.css" />

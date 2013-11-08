@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+<script type="text/ecmascript">
+    $(window).load(function () {
+        setTimeout('history.back()', 3000)
+    })
+</script>
+<h2 style="text-align: center; padding-top: 50px;">
+    @if (ViewBag.Error == null)
+    {
+        @:抱歉，处理您的请求时出错。
+    }
+    else
+    {
+        @ViewBag.Error
+    }
+</h2>
+<a href="javascript:history.back();" onclick="history.back()" style="text-align: center; text-decoration: none; width: 100%; display: block; text-shadow: 1px 1px 0 #ccc; color: #777; padding-top: 20px;">如果您的浏览器3秒后没有跳转，请点击这里返回上一页
+</a>

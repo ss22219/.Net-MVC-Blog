@@ -38,3 +38,17 @@ C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\bin\Debug\NHibernate.Linq.
 C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\obj\Debug\Blog.Repository.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\obj\Debug\Blog.Repository.dll
 C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\obj\Debug\Blog.Repository.pdb
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Repository\bin\Debug\Blog.Repository.dll
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Repository\bin\Debug\Blog.Repository.pdb
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Repository\bin\Debug\Blog.Model.dll
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Repository\bin\Debug\Iesi.Collections.dll
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Repository\bin\Debug\MySql.Data.dll
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Repository\bin\Debug\NHibernate.dll
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Repository\bin\Debug\NHibernate.Linq.dll
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Repository\bin\Debug\Blog.Model.pdb
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Repository\bin\Debug\Iesi.Collections.xml
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Repository\bin\Debug\NHibernate.xml
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Repository\bin\Debug\NHibernate.Linq.xml
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Repository\obj\Debug\Blog.Repository.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Repository\obj\Debug\Blog.Repository.dll
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Repository\obj\Debug\Blog.Repository.pdb

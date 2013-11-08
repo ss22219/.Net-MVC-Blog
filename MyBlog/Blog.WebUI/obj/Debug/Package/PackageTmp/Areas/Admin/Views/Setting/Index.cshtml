@@ -1,0 +1,205 @@
+﻿@model IDictionary<string, string>
+@{
+    ViewBag.Title = "常规选项";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div id="screen-meta" class="metabox-prefs">
+
+    <div id="contextual-help-wrap" class="hidden" tabindex="-1" aria-label="“上下文帮助”选项卡">
+        <div id="contextual-help-back"></div>
+        <div id="contextual-help-columns">
+            <div class="contextual-help-tabs">
+                <ul>
+
+                    <li id="tab-link-overview" class="active">
+                        <a href="#tab-panel-overview" aria-controls="tab-panel-overview">概述								</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="contextual-help-sidebar">
+                <p><strong>更多信息：</strong></p>
+            </div>
+
+            <div class="contextual-help-tabs-wrap">
+
+                <div id="tab-panel-overview" class="help-tab-content active">
+                    <p>本页面中的选项决定您站点的基本配置。</p>
+                    <p>如果您希望允许访客自行注册（另外一种方式是由站点管理员代为注册），请勾选“成员资格”复选框。默认用户角色应用于所有新注册的用户，不论其是由管理员代为注册，抑或是自行注册。</p>
+                    <p>调整完成后，记得点击页面下方“保存更改”按钮使设置生效。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="screen-meta-links">
+    <div id="contextual-help-link-wrap" class="hide-if-no-js screen-meta-toggle">
+        <a href="#contextual-help-wrap" id="contextual-help-link" class="show-settings" aria-controls="contextual-help-wrap" aria-expanded="false">帮助</a>
+    </div>
+</div>
+
+<div class="wrap">
+    <div id="icon-options-general" class="icon32">
+        <br>
+    </div>
+    <h2>常规选项</h2>
+
+
+    @if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        <div id="message" class="updated below-h2">
+            <p>
+                @ViewBag.Message
+            </p>
+        </div>
+    }
+    @if (!string.IsNullOrEmpty(ViewBag.Error))
+    {
+        <div class="error below-h2">
+            <p><strong>错误</strong>：@ViewBag.Error</p>
+        </div>
+    }
+    <form method="post">
+        <input type="hidden" name="option_page" value="general"><input type="hidden" name="action" value="update"><input type="hidden" id="_wpnonce" name="_wpnonce" value="9139de056f"><input type="hidden" name="_wp_http_referer" value="/wp-admin/options-general.php">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label for="blogname">站点标题</label></th>
+                    <td>
+                        <input name="BlogTitle" type="text" id="blogname" value="@Model["BlogTitle"]" class="regular-text"></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label for="blogdescription">副标题</label></th>
+                    <td>
+                        <input name="BlogDescription" type="text" id="blogdescription" value="@Model["BlogDescription"]" class="regular-text">
+                        <p class="description">用简洁的文字描述本站点。</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label for="blogdescription">网站地址</label></th>
+                    <td>
+                        <input name="WebSite" type="text" id="website" value="@Model["WebSite"]" class="regular-text">
+                        <p class="description">显示本站的地址。</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">成员资格</th>
+                    <td>
+                        <fieldset>
+                            <legend class="screen-reader-text"><span>成员资格</span></legend>
+                            <label for="users_can_register">
+                                <input name="AllRegister" type="checkbox" id="users_can_register" value="true" @if (Model["AllRegister"].Equals("1"))
+                                                                                                               {<text>checked="checked"</text>}/>
+                                任何人都可以注册</label>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label for="default_role">新用户默认角色</label></th>
+                    <td>
+                        <select name="DefaultRole" id="default_role">
+                            <option selected="selected" value="1">读者</option>
+                            <option value="2">管理员</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <label for="start_of_week">一星期开始于</label></th>
+                    <td>
+                        <select name="WeekStart" id="start_of_week">
+                            <option value="0"@if (Model["WeekStart"].Equals("0"))
+                                             { <text> selected="selected"</text>}>星期日</option>
+                            <option value="1"@if (Model["WeekStart"].Equals("1"))
+                                             { <text> selected="selected"</text>}>星期一</option>
+                            <option value="2"@if (Model["WeekStart"].Equals("2"))
+                                             { <text> selected="selected"</text>}>星期二</option>
+                            <option value="3"@if (Model["WeekStart"].Equals("3"))
+                                             { <text> selected="selected"</text>}>星期三</option>
+                            <option value="4"@if (Model["WeekStart"].Equals("4"))
+                                             { <text> selected="selected"</text>}>星期四</option>
+                            <option value="5"@if (Model["WeekStart"].Equals("5"))
+                                             { <text> selected="selected"</text>}>星期五</option>
+                            <option value="6"@if (Model["WeekStart"].Equals("6"))
+                                             { <text> selected="selected"</text>}>星期六</option>
+                        </select></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label for="posts_per_page">最新文章至多显示</label></th>
+                    <td>
+                        <input name="LastArticleCount" type="number" step="1" min="1" id="posts_per_page" value="@Model["LastArticleCount"]" class="small-text">
+                        篇文章</td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label for="posts_per_rss">分类与标签中</label></th>
+                    <td>
+                        <input name="ArticlePageSize" type="number" step="1" min="1" id="posts_per_rss" value="@Model["ArticlePageSize"]" class="small-text">
+                        个文章</td>
+                </tr>
+
+                <tr valign="top">
+                    <th scope="row">评论设置</th>
+                    <td>
+                        <fieldset>
+                            <legend class="screen-reader-text"><span>评论资格</span></legend>
+                            <label for="NoLoginComment">
+                                <input name="NoLoginComment" type="checkbox" id="NoLoginComment" value="true" @if (!Model["NoLoginComment"].Equals("1"))
+                                                                                                              {<text>checked="checked"</text>}/>
+                                用户必须注册并登录才可以发表评论
+                            </label>
+                        </fieldset>
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <th scope="row"></th>
+                    <td>
+                        <fieldset>
+
+                            <label for="comment_moderation">
+                                <input name="CommentSatus" type="checkbox" id="comment_moderation" value="true" @(Model["CommentSatus"].Equals("1") ? "" : "checked=checked")>
+                                评论须经由管理员审核
+                            </label>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row"></th>
+                    <td>
+                        <fieldset>
+                            <label for="comments_per_page">每页显示<input name="CommentPageSize" type="number" step="1" min="0" id="comments_per_page" value="@Model["CommentPageSize"]" class="small-text">条评论</label>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row"></th>
+                    <td>
+                        <fieldset>
+                            <label for="thread_comments_depth">
+                                评论镶套最多
+                                <select name="MaxReComment" id="thread_comments_depth">
+                                    @for (int i = 1; i <= 8; i++)
+                                    {
+                                        <option value="@i" @if (Model["MaxReComment"].Equals(i.ToString()))
+                                                           {<text>selected="selected"</text>}>@i</option>
+                                    }
+                                </select>层</label>
+                        </fieldset>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <p class="submit">
+            <input type="submit" name="submit" id="submit" class="button button-primary" value="保存更改">
+        </p>
+    </form>
+
+</div>

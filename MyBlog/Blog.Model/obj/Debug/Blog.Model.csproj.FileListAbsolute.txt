@@ -12,3 +12,7 @@ C:\Users\Administrator\Desktop\MyBlog\Blog.Model\bin\Debug\Blog.Model.dll
 C:\Users\Administrator\Desktop\MyBlog\Blog.Model\bin\Debug\Blog.Model.pdb
 C:\Users\Administrator\Desktop\MyBlog\Blog.Model\obj\Debug\Blog.Model.dll
 C:\Users\Administrator\Desktop\MyBlog\Blog.Model\obj\Debug\Blog.Model.pdb
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Model\bin\Debug\Blog.Model.dll
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Model\bin\Debug\Blog.Model.pdb
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Model\obj\Debug\Blog.Model.dll
+C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Model\obj\Debug\Blog.Model.pdb
