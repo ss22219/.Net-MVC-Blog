@@ -18,6 +18,11 @@ Java 版本
 请查看 <a href="https://github.com/ss22219/Spring-Rythm-Blog">Spring-Rythm-Blog</a> 代码库
 
 
+关于作者
+====
+在短暂的时光里明白了生命的真相， 然后陈眠于无尽的黑暗中
+
+
 Blog
 ====
 
