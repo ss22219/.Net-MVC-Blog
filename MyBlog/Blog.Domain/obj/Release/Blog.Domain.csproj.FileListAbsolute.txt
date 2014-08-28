@@ -24,3 +24,16 @@ C:\Users\Administrator\Desktop\MyBlog\Blog.Domain\bin\Release\Iesi.Collections.x
 C:\Users\Administrator\Desktop\MyBlog\Blog.Domain\obj\Release\Blog.Domain.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\MyBlog\Blog.Domain\obj\Release\Blog.Domain.dll
 C:\Users\Administrator\Desktop\MyBlog\Blog.Domain\obj\Release\Blog.Domain.pdb
+F:\www\blog\MyBlog\Blog.Domain\bin\Release\Blog.Domain.dll
+F:\www\blog\MyBlog\Blog.Domain\bin\Release\Blog.Domain.pdb
+F:\www\blog\MyBlog\Blog.Domain\bin\Release\Blog.Model.dll
+F:\www\blog\MyBlog\Blog.Domain\bin\Release\Blog.Repository.dll
+F:\www\blog\MyBlog\Blog.Domain\bin\Release\NHibernate.dll
+F:\www\blog\MyBlog\Blog.Domain\bin\Release\Iesi.Collections.dll
+F:\www\blog\MyBlog\Blog.Domain\bin\Release\Blog.Model.pdb
+F:\www\blog\MyBlog\Blog.Domain\bin\Release\Blog.Repository.pdb
+F:\www\blog\MyBlog\Blog.Domain\bin\Release\NHibernate.xml
+F:\www\blog\MyBlog\Blog.Domain\bin\Release\Iesi.Collections.xml
+F:\www\blog\MyBlog\Blog.Domain\obj\Release\Blog.Domain.csprojResolveAssemblyReference.cache
+F:\www\blog\MyBlog\Blog.Domain\obj\Release\Blog.Domain.dll
+F:\www\blog\MyBlog\Blog.Domain\obj\Release\Blog.Domain.pdb

@@ -11,17 +11,16 @@
         <p>
             <label for="user_login">
                 用户名<br />
-                <input type="text" name="UserName" id="user_login" class="input" value="@Request.Cookies["UserName"].Value" size="20" /></label>
+                <input type="text" name="UserName" id="user_login" class="input" value="@(Request.Cookies["UserName"] == null ? "" : Request.Cookies["UserName"].Value)" size="20" /></label>
         </p>
         <p>
             <label for="user_pass">
                 密码<br />
-                <input type="password" name="Password" id="user_pass" class="input" value="@Request.Cookies["Password"].Value" size="20" /></label>
+                <input type="password" name="Password" id="user_pass" class="input" value="@(Request.Cookies["Password"] == null ? "" : Request.Cookies["Password"].Value)" size="20" /></label>
         </p>
         <p class="forgetmenot">
             <label for="rememberme">
-                <input name="RememberMe" type="checkbox" id="rememberme" value="true"@if(!string.IsNullOrEmpty(Request.Cookies["UserName"].Value)){ @:checked="checked"
-                    }/>
+                <input name="RememberMe" type="checkbox" id="rememberme" value="true"@(Request.Cookies["UserName"] == null ? "checked=\"checked\"" : "")/>
                 记住我的登录信息</label>
         </p>
         <p class="submit">

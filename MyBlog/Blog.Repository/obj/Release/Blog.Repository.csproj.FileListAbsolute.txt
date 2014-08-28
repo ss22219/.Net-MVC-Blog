@@ -25,3 +25,17 @@ C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\bin\Release\NHibernate.Lin
 C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\obj\Release\Blog.Repository.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\obj\Release\Blog.Repository.dll
 C:\Users\Administrator\Desktop\MyBlog\Blog.Repository\obj\Release\Blog.Repository.pdb
+F:\www\blog\MyBlog\Blog.Repository\bin\Release\Blog.Repository.dll
+F:\www\blog\MyBlog\Blog.Repository\bin\Release\Blog.Repository.pdb
+F:\www\blog\MyBlog\Blog.Repository\bin\Release\Blog.Model.dll
+F:\www\blog\MyBlog\Blog.Repository\bin\Release\Iesi.Collections.dll
+F:\www\blog\MyBlog\Blog.Repository\bin\Release\MySql.Data.dll
+F:\www\blog\MyBlog\Blog.Repository\bin\Release\NHibernate.dll
+F:\www\blog\MyBlog\Blog.Repository\bin\Release\NHibernate.Linq.dll
+F:\www\blog\MyBlog\Blog.Repository\bin\Release\Blog.Model.pdb
+F:\www\blog\MyBlog\Blog.Repository\bin\Release\Iesi.Collections.xml
+F:\www\blog\MyBlog\Blog.Repository\bin\Release\NHibernate.xml
+F:\www\blog\MyBlog\Blog.Repository\bin\Release\NHibernate.Linq.xml
+F:\www\blog\MyBlog\Blog.Repository\obj\Release\Blog.Repository.csprojResolveAssemblyReference.cache
+F:\www\blog\MyBlog\Blog.Repository\obj\Release\Blog.Repository.dll
+F:\www\blog\MyBlog\Blog.Repository\obj\Release\Blog.Repository.pdb

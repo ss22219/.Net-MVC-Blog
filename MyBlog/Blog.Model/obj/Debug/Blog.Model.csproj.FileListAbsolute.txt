@@ -16,3 +16,8 @@ C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Model\bin\Debu
 C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Model\bin\Debug\Blog.Model.pdb
 C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Model\obj\Debug\Blog.Model.dll
 C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Model\obj\Debug\Blog.Model.pdb
+F:\www\blog\MyBlog\Blog.Model\bin\Debug\Blog.Model.dll
+F:\www\blog\MyBlog\Blog.Model\bin\Debug\Blog.Model.pdb
+F:\www\blog\MyBlog\Blog.Model\obj\Debug\Blog.Model.csprojResolveAssemblyReference.cache
+F:\www\blog\MyBlog\Blog.Model\obj\Debug\Blog.Model.dll
+F:\www\blog\MyBlog\Blog.Model\obj\Debug\Blog.Model.pdb

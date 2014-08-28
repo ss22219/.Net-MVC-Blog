@@ -50,3 +50,16 @@ C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Domain\bin\Deb
 C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Domain\obj\Debug\Blog.Domain.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Domain\obj\Debug\Blog.Domain.dll
 C:\Users\Administrator\Documents\GitHub\.Net-MVC-Blog\MyBlog\Blog.Domain\obj\Debug\Blog.Domain.pdb
+F:\www\blog\MyBlog\Blog.Domain\bin\Debug\Blog.Domain.dll
+F:\www\blog\MyBlog\Blog.Domain\bin\Debug\Blog.Domain.pdb
+F:\www\blog\MyBlog\Blog.Domain\bin\Debug\Blog.Model.dll
+F:\www\blog\MyBlog\Blog.Domain\bin\Debug\Blog.Repository.dll
+F:\www\blog\MyBlog\Blog.Domain\bin\Debug\NHibernate.dll
+F:\www\blog\MyBlog\Blog.Domain\bin\Debug\Iesi.Collections.dll
+F:\www\blog\MyBlog\Blog.Domain\bin\Debug\Blog.Model.pdb
+F:\www\blog\MyBlog\Blog.Domain\bin\Debug\Blog.Repository.pdb
+F:\www\blog\MyBlog\Blog.Domain\bin\Debug\NHibernate.xml
+F:\www\blog\MyBlog\Blog.Domain\bin\Debug\Iesi.Collections.xml
+F:\www\blog\MyBlog\Blog.Domain\obj\Debug\Blog.Domain.csprojResolveAssemblyReference.cache
+F:\www\blog\MyBlog\Blog.Domain\obj\Debug\Blog.Domain.dll
+F:\www\blog\MyBlog\Blog.Domain\obj\Debug\Blog.Domain.pdb
