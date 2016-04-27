@@ -1,7 +1,7 @@
 ﻿博客
 ====
 
-这个程序开发于 Visual Studio 2012
+毕业那年想明白些什么，于是写下了一大段代码
 
 
 安装
@@ -9,37 +9,6 @@
 
 导入 blog.sql 到 MySql 数据库
 
-修改 MyBlog/Blog.WebUI/obj/Debug/Package/PackageTmp/bin/hibernate.cfg.xml 文件的连接字符串
+修改 bin/hibernate.cfg.xml 文件的连接字符串
 
 上传 MyBlog/Blog.WebUI/obj/Debug/Package/PackageTmp 里面的文件到你的网站根目录
-
-Java 版本
-====
-请查看 <a href="https://github.com/ss22219/Spring-Rythm-Blog">Spring-Rythm-Blog</a> 代码库
-
-
-关于作者
-====
-在短暂的时光里明白了生命的真相， 然后陈眠于无尽的黑暗中
-
-
-Blog
-====
-
-This solution is develop on Visual Studio 2012
-
-
-Install
-====
-
-Import blog.sql to Mysql
-
-Edit MyBlog/Blog.WebUI/obj/Debug/Package/PackageTmp/bin/hibernate.cfg.xml ConnectionString node
-
-Upload MyBlog/Blog.WebUI/obj/Debug/Package/PackageTmp flies to you web site root
-
-
-Java version
-====
-see <a href="https://github.com/ss22219/Spring-Rythm-Blog">Spring-Rythm-Blog</a> repository
-
